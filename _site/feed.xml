@@ -1,28 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Alex Leo</title>
-    <description>&lt;h3&gt;Geek by Day, Nerd by Night&lt;/h3&gt;&lt;h1&gt;Alex Leo&lt;/h1&gt;&lt;h3&gt;Software Engineer, Hack Reactor Student, Gamer, Rambler, and Tea Drinker&lt;/h3&gt;Personal Insights Gained Through Technological Discovery</description>
-    <link>http://aleo23.github.io/</link>
-    <atom:link href="http://aleo23.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 10 Sep 2016 13:27:57 -0400</pubDate>
-    <lastBuildDate>Sat, 10 Sep 2016 13:27:57 -0400</lastBuildDate>
+    <title>Just Saying Javascript</title>
+    <description>A blog about Javascript, programming, and all of the beautiful and eccentric challenges one encounters while coding.
+</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 19 Sep 2016 02:50:48 -0400</pubDate>
+    <lastBuildDate>Mon, 19 Sep 2016 02:50:48 -0400</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
-        <title>First Post</title>
-        <description>&lt;p&gt;This is where I will write my first blog post.&lt;/p&gt;
+        <title>Enter the Programming Dragon</title>
+        <description>&lt;h2 id=&quot;love-to-code&quot;&gt;Love to Code?&lt;/h2&gt;
+
+&lt;h6 id=&quot;who-doesnt&quot;&gt;Who doesn’t!?&lt;/h6&gt;
+
+&lt;p&gt;Do you want to further your programming skills but feel like you don’t have enough time? Or maybe you just want to brush up on the basics? Practice re-factoring your code in the most elegant form possible?&lt;/p&gt;
+
+&lt;h2 id=&quot;tell-me-more&quot;&gt;Tell me more…&lt;/h2&gt;
+
+&lt;h6 id=&quot;practice-makes-perfect&quot;&gt;Practice Makes Perfect&lt;/h6&gt;
+
+&lt;p&gt;Practice problems are one of the most effective ways to better your ability to write functions, as well as visualize code and its execution. There are a few great web sites out there that allow you to practice coding on single, modular problems. This allows you to practice writing complex functions to solve high level problems, without having to write your own test cases or HTML. These problems will cause you to use all of your programming kung fu to take them down. Another great benefit is practice using Test Driven Development (TDD).&lt;/p&gt;
+
+&lt;h2 id=&quot;test-drive-what&quot;&gt;Test Drive What?&lt;/h2&gt;
+
+&lt;h6 id=&quot;skip-this-section-if-you-like-bugs-hiding-in-your-code&quot;&gt;Skip this section if you like bugs hiding in your code&lt;/h6&gt;
+
+&lt;p&gt;Test Driven Development is crucial to being an effective programmer. Writing tests for your code allow you bend and manipulate your code in different ways to ensure stability, even in extreme cases. This kind of meticulous and effective programming will lead to less bugs and more time for you to code. Major companies use TDD to ensure that their programs will run in various user environments with a similar user experience.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/books.jpg&quot;&gt;&lt;img src=&quot;/assets/images/books.jpg&quot; alt=&quot;bookshelf&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The problems on these websites will vary in difficulty, so I encourage you to try each one to see which one is right for you. Each website has something different to offer and people choose might one over another for various reasons. The websites included support Javascript, as well as many other popular programming languages.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;I am in no way affiliated with any of the following websites; I just have fun on them.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;codewars&quot;&gt;Codewars&lt;/h2&gt;
+
+&lt;p&gt;Codewars is a community driven code challenge website designed for all skill levels. Codewars has tests for anything from logging “Hello World!” to the console to writing your own interpreter to run code. They take a karate style approach, employing “kyu” ranks to earn as you gain more honor. Honor is gained by completing challenges, writing your own kata, and being an active member of the website’s community. It’s quick to get started and they have a wide range of problems to choose from.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.codewars.com&quot;&gt;Codewars&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/codewars.png&quot;&gt;&lt;img src=&quot;/assets/images/codewars.png&quot; alt=&quot;codewars&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;leetcode&quot;&gt;Leetcode&lt;/h2&gt;
+
+&lt;p&gt;Leetcode Online Judge, or Leetcode OJ for short, is designed specifically towards technical interviews. The problems submitted are real life interview questions. Leetcode offers about 400 problems to be solved in your preferred language. Furthermore, the companies submitting these questions are some of the biggest names in the industry including Facebook, Twitter, Google, Uber, and Microsoft. Leetcode hosts a weekly contest that ranks competitors against their rivals globally, with prizes for the top three.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://leetcode.com&quot;&gt;Leetcode&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/leetcode.png&quot;&gt;&lt;img src=&quot;/assets/images/leetcode.png&quot; alt=&quot;leetcode&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;codefights&quot;&gt;Codefights&lt;/h2&gt;
+
+&lt;p&gt;Codefights offers a slightly different approach to practice problems. In addition to hundreds of practice problems that are archived on the site, there are constant “active” challenges refreshing to ensure new content is delivered regularly. Top companies such as Uber, GoDaddy, Quora, and Dropbox, to name a few, also have code bots on Codefights. This enables you to go against both company bots and their own practice bots in head to head coding challenges. The challenges are timed and scored, and managed by the Codefights team and the companies that created them.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://codefights.com&quot;&gt;Codefights&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/codefights.png&quot;&gt;&lt;img src=&quot;/assets/images/codefights.png&quot; alt=&quot;codefights&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;coderbyte&quot;&gt;Coderbyte&lt;/h2&gt;
+
+&lt;p&gt;Coderbyte compiles their coding challenges into courses tailored towards a specific goal. Some of the offerings at Coderbyte include Coding Bootcamp Prep and Job Interview Prep. Coderbtye also offers internal and external resources to teach concepts like variables, conditionals, functions, and loops in Javascript. Another quirk of Coderbyte is their mobile coding quizzes, accessible via mobile device.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://coderbyte.com/&quot;&gt;Coderbyte&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/coderbyte.png&quot;&gt;&lt;img src=&quot;/assets/images/coderbyte.png&quot; alt=&quot;coderbyte&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+
+&lt;p&gt;These are all of the coding challenge websites that I’ve been able to practice on in my own time. There are many more websites and resources available to continue practicing, I couldn’t possibly list them all in one blog post. I hope you enjoyed taking some time to read about TDD (can you remember what that stands for?), practice problems, and how they are useful to you. If you enjoyed reading, check out some of my other posts, or shoot me an email if you have any feedback! Happy coding, and remember PRACTICE MAKES PERFECT!!&lt;/p&gt;
+
 </description>
-        <pubDate>Sat, 10 Sep 2016 00:00:00 -0400</pubDate>
-        <link>http://aleo23.github.io/javascript/blog/setup/2016/09/10/first-post.html</link>
-        <guid isPermaLink="true">http://aleo23.github.io/javascript/blog/setup/2016/09/10/first-post.html</guid>
+        <pubDate>Mon, 19 Sep 2016 00:00:00 -0400</pubDate>
+        <link>http://localhost:4000/posts/enter-the-programming-dragon/</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/enter-the-programming-dragon/</guid>
+        
+        <category>practice practice practice</category>
         
         
-        <category>javascript</category>
-        
-        <category>blog</category>
-        
-        <category>setup</category>
+        <category>posts</category>
         
       </item>
     
