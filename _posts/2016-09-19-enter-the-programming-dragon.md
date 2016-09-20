@@ -1,5 +1,5 @@
 ---
-bg: "tools.jpg"
+bg: "meeting.jpg"
 layout: post
 title:  "Enter the Programming Dragon"
 crawlertitle: "Kick It Like Bruce Lee"
