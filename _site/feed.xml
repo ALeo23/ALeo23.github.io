@@ -4,11 +4,119 @@
     <title>Just Saying Javascript</title>
     <description>A blog about Javascript, programming, and all of the beautiful and eccentric challenges one encounters while coding.
 </description>
-    <link>https://aleo23.github.io/</link>
-    <atom:link href="https://aleo23.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 21 Sep 2016 15:54:54 -0400</pubDate>
-    <lastBuildDate>Wed, 21 Sep 2016 15:54:54 -0400</lastBuildDate>
+    <link>http://127.0.0.1:4000//</link>
+    <atom:link href="http://127.0.0.1:4000//feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 01 Oct 2016 01:30:03 -0400</pubDate>
+    <lastBuildDate>Sat, 01 Oct 2016 01:30:03 -0400</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
+    
+      <item>
+        <title>Escaping HMTL</title>
+        <description>&lt;h2 id=&quot;converting-values&quot;&gt;Converting Values&lt;/h2&gt;
+
+&lt;p&gt;Malicious users can ‘inject’ HTML directly into your webpage via XSS(more about that below). When we escape HTML, we replace potentially dangerous characters with their escaped equivalents. A couple examples are highlighted at the end of the section. Escape HTML anywhere that there is a potential for any kind of user input.&lt;/p&gt;
+
+&lt;p&gt;For instance, somebody accessed your vulnerable website and entered something like &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;script&amp;gt;setInterval(function() {alert(&quot;We're no strangers to memes&quot;)},0)&amp;lt;/script&amp;gt;&lt;/code&gt; into a search bar. This code would then be ran within your HMTL page, entering you into an infinite loop of alerts that allude to &lt;a href=&quot;https://www.youtube.com/watch?v=dQw4w9WgXcQ&quot;&gt;Rick Astley&lt;/a&gt; jokes. Super malicious. You can prevent this insane act of terror from perversing your webpage by correctly escaping the HTML.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//escapes to &amp;amp;amp;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//escapes to &amp;amp;lt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//escapes to &amp;amp;gt;&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//escapes to &amp;amp;quot;&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//escapes to &amp;amp;#x27;&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//escapes to &amp;amp;#96;&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;/ /&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;escapes&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x2F&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;One way to get these escaped values is the &lt;code class=&quot;highlighter-rouge&quot;&gt;_.escape&lt;/code&gt; function included in the &lt;a href=&quot;http://underscorejs.org/#escape&quot;&gt;underscore.js&lt;/a&gt; library. The accompanying &lt;code class=&quot;highlighter-rouge&quot;&gt;_.unescape&lt;/code&gt; function can be used to convert these strings to their unescaped values. &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions&quot;&gt;Regular expressions&lt;/a&gt; can also be used to reject or replace strings that (potentially) contain an XSS atack. Note that you are not able to escape all of these using this method. Some of the above symbols can used to escape out of an HTML attribute value that is not quoted and it would be best to escape them. It is also best practice to quote all HMTL attributes for security purposes.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/keyboard.jpg&quot;&gt;&lt;img src=&quot;/assets/images/keyboard.jpg&quot; alt=&quot;escape&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;(You didn’t seriously click on that Rick Astley link did you?)&lt;/p&gt;
+
+&lt;h2 id=&quot;unicode&quot;&gt;Unicode&lt;/h2&gt;
+
+&lt;p&gt;Computers today are very powerful, capable machines, yet they’re still complex calculators that operate on numbers. All letter and symbol data that is input into a computer needs to be converted into some sort of number value in order to be interpreted by a computer. This process is referred to as &lt;em&gt;encoding&lt;/em&gt;; characters are encoded from letters into numbers. As with any other industry or project, a need for some sort of standardization quickly developed. &lt;a href=&quot;http://unicode.org/standard/WhatIsUnicode.html&quot;&gt;Unicode&lt;/a&gt; came in to save the day by providing a worldwide encoding standard. Unicode is more secure than the past systems, where programs would have to use multiple character encoding systems. This could lead to unexpected code being injected because all systems encode and transfer characters different. Their encoding standard is flexible and can be used across any language, spoken or programming, application, and platform. A healthy by-product of this flexibility is the worldwide availability of many software programs. Unicode eliminates a lot of the frustration involved with communicating with external networks and APIs.&lt;/p&gt;
+
+&lt;h6 id=&quot;utf-8--utf-16--utf-32&quot;&gt;UTF-8 / UTF-16 / UTF-32&lt;/h6&gt;
+
+&lt;p&gt;UTF-8 is the most commonly used type of the Unicode standard. Within Javascript and on the web, this will be the primary type you’ll work with. Other platforms such as Java, Windows, and Linux will use either UTF-16 or UTF-32 depending on their needs. UTF-16 and UTF-32 are two more currently implemented types of Unicode. These three versions are all fundamentally similar, but encode characters in different ways. UTF-8 provides up to four 8-bit bytes, UTF-16 holds up to two 16-bit code units and UTF-32 has one 32-bit code unit. No matter what version you are using, it is important to declare your charset using the appropriate HTML attribute within the meta tag. Characters can be transferred from one UTF type to another using algorithms found on the Unicode website. If you’re interested, check out their &lt;a href=&quot;http://unicode.org/faq/utf_bom.html&quot;&gt;FAQ&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;see-also&quot;&gt;See Also&lt;/h2&gt;
+
+&lt;p&gt;-&lt;a href=&quot;https://xss-game.appspot.com/&quot;&gt;A Game About XSS&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;-&lt;a href=&quot;https://hack.me/t/XSS&quot;&gt;hack.me An XSS Challenges Website&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;-&lt;a href=&quot;https://www.owasp.org/index.php/Main_Page&quot;&gt;OWASP’s Vast Security Wiki&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;-&lt;a href=&quot;http://underscorejs.org/#template&quot;&gt;Templates in Underscore&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 02 Oct 2016 00:00:00 -0400</pubDate>
+        <link>http://127.0.0.1:4000//posts/escaping-html/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000//posts/escaping-html/</guid>
+        
+        <category>Removing dangerous characters</category>
+        
+        
+        <category>posts</category>
+        
+      </item>
+    
+      <item>
+        <title>Application Security</title>
+        <description>&lt;h2 id=&quot;information-is-important&quot;&gt;Information Is Important&lt;/h2&gt;
+
+&lt;p&gt;Computer hackers have been around for a long time now and their business only becomes more lucrative. With the internet and telecommunications continuing to exponenetially grow, the demand for personal information only gets higher. This means that your security needs to be top-notch at all times in order to keep your users, their data, and yourself safe from malicious attacks. There are many oppurtunities for vulnerability while browsing the internet and it is very important to be aware of all of the various ways that you can keep your data safe.&lt;/p&gt;
+
+&lt;h2 id=&quot;xss&quot;&gt;XSS&lt;/h2&gt;
+
+&lt;p&gt;XSS is an acronym for cross-site scripting, which is a style of attack where a malicious user injects code into your program unwillingly. This can lead to a myriad of bad events ranging from changing your page layout to stealing all of your client’s sensitive user data. Protecting against XSS is important if you want your users to be able to trust that your website is safe. Many different attack vectors, some larger than others, exist that all have different vulnerabilities that need to be protected against. The primary ways to defend against XSS are far too long and involved to cover in one blog post. I highly encourage you to check out the XSS Prevention Cheat Sheet that OWASP has put together &lt;a href=&quot;https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet&quot;&gt;here.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/lock.jpg&quot;&gt;&lt;img src=&quot;/assets/images/lock.jpg&quot; alt=&quot;security&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h6 id=&quot;owasp&quot;&gt;OWASP&lt;/h6&gt;
+
+&lt;p&gt;The Open Web Application Security Project is designed to be a worldwide organization that specializes in application security. OWASP’s main goal is to allow worldwide distribution of software that can be trusted. They provide information about internet security such as common attack vectors for information, vulnerabilities, and proactive actions you can take. OWASP has a variety of cheat sheets and documentation around ways to protect yourself and design your applications to protect your users.&lt;/p&gt;
+
+&lt;h2 id=&quot;same-origin-policy&quot;&gt;Same Origin Policy&lt;/h2&gt;
+
+&lt;p&gt;Scripts are normally only to be run on the site that originated them. Sounds secure right? This rule is designed to keep users/clients safe from malicious websites. An origin consists of a domain, a sub-domain, protocol, and port; all of these must match to run a script according to the same origin policy. This rule does not protect a server or application from the client. Furthermore, this would even mean that if you wanted to make some changes on your website on a localhost port, any calls to a third party service would fail. This is all part of the browser and is implemented by the developer of the browser. Chrome, for example, allows this service to be disabled by starting the application with the –disable-web-security flag.&lt;/p&gt;
+
+&lt;h6 id=&quot;cors&quot;&gt;CORS&lt;/h6&gt;
+
+&lt;p&gt;Cross Origin Resource Sharing, CORS for short, is accessed when a client makes a request to a server other than its origin. This allows websites across different domains to share data with one another. As you can imagine, this benefit is also a risk, as the data passed between websites can be sensitive. The owner of the server being accessed gets to determine the access rights for CORS on that server.&lt;/p&gt;
+
+&lt;p&gt;When a GET request is sent to the server, it will contain a CORS header. The server will then check to see if that client’s CORS header matches its Access-Control-Allow-Origin list. If the client has a valid header, the server will fulfill the requests, otherwise the server will send back an unauthorized error. Many servers disable CORS for security purposes, or use some sort of authentication before sending out data.  Authentication is usually verified in the form of user accounts, API keys, and cookies.&lt;/p&gt;
+
+&lt;p&gt;A flowchart can be found &lt;a href=&quot;http://www.html5rocks.com/static/images/cors_server_flowchart.png&quot;&gt;here&lt;/a&gt; that shows the different steps the server will go through when receiving a GET or POST request from an off site client.&lt;/p&gt;
+
+&lt;h6 id=&quot;jsonp&quot;&gt;JSONP&lt;/h6&gt;
+
+&lt;p&gt;JSONP is Javascript Object Notation with Padding. JSONP can be used to bypass CORS and make cross-domain requests for data. What does it mean when we say “padding” on a JSON object? On the server side, the JSON object just gets wrapped in a callback function before being sent off. If you put the URL inside of a script tag, the browser is going to execute the script tag and download the linked script file, and execute the file once it’s been loaded. Script tags are able to pull files from the internet across domains, much like loading jQuery from a CDN. JSONP can be dangerous because the code that is being executed came from another domain. This should only be used with trusted sources.&lt;/p&gt;
+
+</description>
+        <pubDate>Sat, 01 Oct 2016 00:00:00 -0400</pubDate>
+        <link>http://127.0.0.1:4000//posts/protecting-against-xss/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000//posts/protecting-against-xss/</guid>
+        
+        <category>Cross Site Scripting</category>
+        
+        
+        <category>posts</category>
+        
+      </item>
     
       <item>
         <title>Recursive Functions</title>
@@ -75,8 +183,8 @@
 
 </description>
         <pubDate>Wed, 21 Sep 2016 00:00:00 -0400</pubDate>
-        <link>https://aleo23.github.io/posts/recursive-functions/</link>
-        <guid isPermaLink="true">https://aleo23.github.io/posts/recursive-functions/</guid>
+        <link>http://127.0.0.1:4000//posts/recursive-functions/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000//posts/recursive-functions/</guid>
         
         <category>infinite loops</category>
         
@@ -149,8 +257,8 @@
 
 </description>
         <pubDate>Mon, 19 Sep 2016 00:00:00 -0400</pubDate>
-        <link>https://aleo23.github.io/posts/enter-the-programming-dragon/</link>
-        <guid isPermaLink="true">https://aleo23.github.io/posts/enter-the-programming-dragon/</guid>
+        <link>http://127.0.0.1:4000//posts/enter-the-programming-dragon/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000//posts/enter-the-programming-dragon/</guid>
         
         <category>practice practice practice</category>
         
