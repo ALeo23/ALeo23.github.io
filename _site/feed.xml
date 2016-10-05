@@ -6,9 +6,64 @@
 </description>
     <link>http://127.0.0.1:4000//</link>
     <atom:link href="http://127.0.0.1:4000//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 01 Oct 2016 01:30:03 -0400</pubDate>
-    <lastBuildDate>Sat, 01 Oct 2016 01:30:03 -0400</lastBuildDate>
+    <pubDate>Tue, 04 Oct 2016 23:58:38 -0400</pubDate>
+    <lastBuildDate>Tue, 04 Oct 2016 23:58:38 -0400</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
+    
+      <item>
+        <title>Optimizing Images</title>
+        <description>&lt;h2 id=&quot;images-as-data&quot;&gt;Images as Data&lt;/h2&gt;
+
+&lt;p&gt;Computer images exist everywhere on the internet. Without them, the world would be a pretty bleak wasteland of text. Pictures display a wide variety of content across the internet, ususally related to the context. Wiki pages use images related to their content, social media profiles have pictures of their users, and games utilize special pictures called &lt;a href=&quot;https://css-tricks.com/css-sprites/&quot;&gt;sprites&lt;/a&gt; to render characters more efficiently.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/mountains.jpg&quot;&gt;&lt;img src=&quot;/assets/images/mountains.jpg&quot; alt=&quot;mountains&quot; /&gt;&lt;/a&gt;
+A picture is worth 1,000 words, or so they say.&lt;/p&gt;
+
+&lt;h6 id=&quot;image-file-size&quot;&gt;Image File Size&lt;/h6&gt;
+
+&lt;p&gt;As you probably already know, data is stored on a computer in bytes, more often respresented by their larger values: kilobytes, megabytes, and gigabytes. If a picture is worth 1,000 words, how many bytes does it take? Trick question. Picture size is dependent on many factors, but the words you use to describe them in your blog post don’t affect the image size. Generally speaking, the more high quality an image is, the larger file size it will have. A main contributor to the quality is the image resolution.&lt;/p&gt;
+
+&lt;h2 id=&quot;compressing-images&quot;&gt;Compressing Images&lt;/h2&gt;
+
+&lt;p&gt;Images can be resized and optimized to fit your needs in order to decrease load times. Most times, a small image like the one above does not need to be a 4K resolution ultra HD picture to convey the details you’re trying to get across. The best practice is to only use the size that you need for your application.&lt;/p&gt;
+
+&lt;p&gt;If the photo is going to be re-sized by your application to be 200px x 200px then it would be a great performance increase to take that load off of your CSS and just do it to the picture itself. To put it simply, making a file smaller, will make it load faster. Today, users demand web apps that are fast and responsive, and simply won’t use apps that feel old or dead. So, what’s the easiest way to re-size these images?&lt;/p&gt;
+
+&lt;h2 id=&quot;imageoptim&quot;&gt;ImageOptim&lt;/h2&gt;
+
+&lt;p&gt;Today, I discovered a new tool that I had to share: ImageOptim. ImageOptim is an application that comes with a slew of great &lt;a href=&quot;https://imageoptim.com/api&quot;&gt;features&lt;/a&gt; designed to streamline the performance of your deployment. One thing I really like about ImageOptim, is I don’t lose image quality when re-sizing the image. My images look exactly the same in production, but load much faster. The comet image on my main blog page now loads ~35kb less than it was before; reducing the amount of data needed to be retrieved from the server before the image can be loaded on screen. ImageOptim will also remove unnecessary metadata, comments, and embedded thumbnails to shrink down on size.&lt;/p&gt;
+
+&lt;h6 id=&quot;versions-of-imageoptim&quot;&gt;Versions of ImageOptim&lt;/h6&gt;
+
+&lt;p&gt;ImageOptim has a few different options available to access their services. Currently, I’m on the Mac App which installs quick, takes up little space, and is very easy to use with a drag and drop interface. ImageOptim will modify the original files that you drag and drop to re-size; I can recommend backing up any images you plan to manipulate. Drag and drop your files in the GUI to re-size and wait for the program to do its magic. I noticed that this did take some time to process the files provided, so performing the work yourself on your local machine before you publish sounds like the most stable option.&lt;/p&gt;
+
+&lt;p&gt;ImageOptim also offers a couple of web services for users who do not wish to modify their local files. Their API is currently in beta and you can sign up to use it on their website. Listed in their documentation, you can also find out how to optimize on the fly. No back-end programming is needed to get this started; you’ll just edit your image URLs to point to the ImageOptim server and they’ll optimize them before sending to the client. Keep in mind that while this optimizes your images, this also involves another GET request and an outside service, which may actually detract from performance.&lt;/p&gt;
+
+&lt;h2 id=&quot;take-aways&quot;&gt;Take Aways&lt;/h2&gt;
+
+&lt;p&gt;Images are pictures on the internet that are used to display various forms of data. Images are made up of pixels, and the amount of pixels that make up an image is determined by its resolution. A higher resolution means a more detailed image and should only be used when needed. ImageOptim is a powerful and fast tool designed for re-sizing images based on user needs. Re-sizing an image manually, rather than having our code do it for us, causes our code to execute faster due to less required operations. The webpage will also load faster as there is less data being transferred over the wire.&lt;/p&gt;
+
+&lt;h2 id=&quot;see-also&quot;&gt;See Also&lt;/h2&gt;
+
+&lt;p&gt;-&lt;a href=&quot;https://imageoptim.com/mac&quot;&gt;ImageOptim Mac app&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;-&lt;a href=&quot;http://learn.shayhowe.com/advanced-html-css/performance-organization/&quot;&gt;Shay Howe’s Advanced CSS: Performance Organization&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;-&lt;a href=&quot;https://unsplash.com/&quot;&gt;Free High Quality Images For Your Application&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;-&lt;a href=&quot;http://www.creativebloq.com/graphic-design/what-is-dpi-image-resolution-71515673&quot;&gt;A Guide to Pixels, Resolutions, and DPI&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 04 Oct 2016 00:00:00 -0400</pubDate>
+        <link>http://127.0.0.1:4000//posts/optimizing-images/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000//posts/optimizing-images/</guid>
+        
+        <category>Rendering Images Faster</category>
+        
+        
+        <category>posts</category>
+        
+      </item>
     
       <item>
         <title>Escaping HMTL</title>
