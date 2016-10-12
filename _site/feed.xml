@@ -6,9 +6,57 @@
 </description>
     <link>http://127.0.0.1:4000//</link>
     <atom:link href="http://127.0.0.1:4000//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 04 Oct 2016 23:58:38 -0400</pubDate>
-    <lastBuildDate>Tue, 04 Oct 2016 23:58:38 -0400</lastBuildDate>
+    <pubDate>Wed, 12 Oct 2016 00:04:23 -0400</pubDate>
+    <lastBuildDate>Wed, 12 Oct 2016 00:04:23 -0400</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
+    
+      <item>
+        <title>Express Development</title>
+        <description>&lt;h2 id=&quot;getting-started-with-express&quot;&gt;Getting Started With Express&lt;/h2&gt;
+
+&lt;p&gt;Express is a web framework designed to abstract away a lot of the repeated code inside of node.js applications. You can find their documentation &lt;a href=&quot;https://expressjs.com/en/4x/api.html&quot;&gt;here&lt;/a&gt; and I highly recommend referencing it often while learning to use Express. Express has many built in functions for handling requests and serving responses. Express cleaned up their framework in the 4.x API and did a massive overhaul on the system. Express is now extremely modular and only comes with what a user will need to handle requests as mentioned above. Express comes pretty bare; &lt;code class=&quot;highlighter-rouge&quot;&gt;express.static&lt;/code&gt; is the only middleware that comes baked in with Express since the 4.x update, so be aware as you read examples online. Any examples referencing 3.x or earlier may contain outdated information.&lt;/p&gt;
+
+&lt;h6 id=&quot;a-note-about-middleware&quot;&gt;A Note About Middleware&lt;/h6&gt;
+
+&lt;p&gt;Middleware functions, in the world of Express, are simply plugins that extend Express’s functionality. A middleware function has a particular set of parameters it must take to work correctly; req, res, and next are required in middleware functions. Req is the request, res is the response, and next is a callback. The next function will signify the end of the function and allow the next functions to run. A function must either call &lt;code class=&quot;highlighter-rouge&quot;&gt;next()&lt;/code&gt; or end the request response cycle, or the server will hang. Middleware is loaded using &lt;code class=&quot;highlighter-rouge&quot;&gt;app.use()&lt;/code&gt;. Express also provides a great guide for writing your own middleware, &lt;a href=&quot;https://expressjs.com/en/guide/writing-middleware.html&quot;&gt;it’s not as hard as it sounds.&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;using-express&quot;&gt;Using Express&lt;/h2&gt;
+
+&lt;p&gt;Using Express is both intuitive and rewarding. I’ve typed up a quick example of a server with some key parts needed to get started handling some GET and POST requests.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/express1.png&quot;&gt;&lt;img src=&quot;/assets/images/express1.png&quot; alt=&quot;express1&quot; /&gt;&lt;/a&gt;
+&lt;em&gt;On the “Code Less Express!”&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Looking above, we can see that a lot of the request handling is being abstracted away for us. The only external functions that are not listed are the express module itself. Express can chain middleware functions using next to move along until an end or return is reached.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/express2.png&quot;&gt;&lt;img src=&quot;/assets/images/express2.png&quot; alt=&quot;express1&quot; /&gt;&lt;/a&gt;
+&lt;em&gt;Postman allows you to debug POST requests without having to create forms and event handlers. (See below)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Generally, you’ll want your POST requests to have some sort of inner function that stores data somewhere in the storage method of your choice. These handlers can also take multiple callbacks and chain them together for more complex operations. The additional callbacks passed in will all call &lt;code class=&quot;highlighter-rouge&quot;&gt;next()&lt;/code&gt; when done running, and the final callback, not usually a named function, in the chain will end the response.&lt;/p&gt;
+
+&lt;h2 id=&quot;going-further&quot;&gt;Going Further&lt;/h2&gt;
+
+&lt;p&gt;Express is a web framework built on top of node. Like many modules that exist for node, Express extends node’s functionality to make working with node less exhausting. Express now comes pretty bare, and only has what you need it to, after you import other middlewares and create your own. Postman is a great app designed to streamline API development and is very quick to pick up and use. Note that when using Express, we don’t need to require or use the ‘http’ module because Express is taking care of the heavy lifting.&lt;/p&gt;
+
+&lt;h2 id=&quot;see-also&quot;&gt;See Also&lt;/h2&gt;
+
+&lt;p&gt;-&lt;a href=&quot;https://expressjs.com/&quot;&gt;Express&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;-&lt;a href=&quot;http://www.9bitstudios.com/2013/09/express-js-authentication/&quot;&gt;Authentication with Express&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;-&lt;a href=&quot;https://www.getpostman.com/&quot;&gt;Postman&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 11 Oct 2016 00:00:00 -0400</pubDate>
+        <link>http://127.0.0.1:4000//posts/express-node-server/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000//posts/express-node-server/</guid>
+        
+        <category>Using node.js</category>
+        
+        
+        <category>posts</category>
+        
+      </item>
     
       <item>
         <title>Optimizing Images</title>
@@ -242,80 +290,6 @@ A picture is worth 1,000 words, or so they say.&lt;/p&gt;
         <guid isPermaLink="true">http://127.0.0.1:4000//posts/recursive-functions/</guid>
         
         <category>infinite loops</category>
-        
-        
-        <category>posts</category>
-        
-      </item>
-    
-      <item>
-        <title>Enter the Programming Dragon</title>
-        <description>&lt;h2 id=&quot;love-to-code&quot;&gt;Love to Code?&lt;/h2&gt;
-
-&lt;h6 id=&quot;who-doesnt&quot;&gt;Who doesn’t!?&lt;/h6&gt;
-
-&lt;p&gt;Do you want to further your programming skills but feel like you don’t have enough time? Or maybe you just want to brush up on the basics? Practice re-factoring your code in the most elegant form possible?&lt;/p&gt;
-
-&lt;h2 id=&quot;tell-me-more&quot;&gt;Tell me more…&lt;/h2&gt;
-
-&lt;h6 id=&quot;practice-makes-perfect&quot;&gt;Practice Makes Perfect&lt;/h6&gt;
-
-&lt;p&gt;Practice problems are one of the most effective ways to better your ability to write functions, as well as visualize code and its execution. There are a few great web sites out there that allow you to practice coding on single, modular problems. This allows you to practice writing complex functions to solve high level problems, without having to write your own test cases or HTML. These problems will cause you to use all of your programming kung fu to take them down. Another great benefit is practice using Test Driven Development (TDD).&lt;/p&gt;
-
-&lt;h2 id=&quot;test-drive-what&quot;&gt;Test Drive What?&lt;/h2&gt;
-
-&lt;h6 id=&quot;skip-this-section-if-you-like-bugs-hiding-in-your-code&quot;&gt;Skip this section if you like bugs hiding in your code&lt;/h6&gt;
-
-&lt;p&gt;Test Driven Development is crucial to being an effective programmer. Writing tests for your code allow you bend and manipulate your code in different ways to ensure stability, even in extreme cases. This kind of meticulous and effective programming will lead to less bugs and more time for you to code. Major companies use TDD to ensure that their programs will run in various user environments with a similar user experience.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;/assets/images/books.jpg&quot;&gt;&lt;img src=&quot;/assets/images/books.jpg&quot; alt=&quot;bookshelf&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;The problems on these websites will vary in difficulty, so I encourage you to try each one to see which one is right for you. Each website has something different to offer and people choose might one over another for various reasons. The websites included support Javascript, as well as many other popular programming languages.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;I am in no way affiliated with any of the following websites; I just have fun on them.&lt;/em&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;codewars&quot;&gt;Codewars&lt;/h2&gt;
-
-&lt;p&gt;Codewars is a community driven code challenge website designed for all skill levels. Codewars has tests for anything from logging “Hello World!” to the console to writing your own interpreter to run code. They take a karate style approach, employing “kyu” ranks to earn as you gain more honor. Honor is gained by completing challenges, writing your own kata, and being an active member of the website’s community. It’s quick to get started and they have a wide range of problems to choose from.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.codewars.com&quot;&gt;Codewars&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;/assets/images/codewars.png&quot;&gt;&lt;img src=&quot;/assets/images/codewars.png&quot; alt=&quot;codewars&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;leetcode&quot;&gt;Leetcode&lt;/h2&gt;
-
-&lt;p&gt;Leetcode Online Judge, or Leetcode OJ for short, is designed specifically towards technical interviews. The problems submitted are real life interview questions. Leetcode offers about 400 problems to be solved in your preferred language. Furthermore, the companies submitting these questions are some of the biggest names in the industry including Facebook, Twitter, Google, Uber, and Microsoft. Leetcode hosts a weekly contest that ranks competitors against their rivals globally, with prizes for the top three.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://leetcode.com&quot;&gt;Leetcode&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;/assets/images/leetcode.png&quot;&gt;&lt;img src=&quot;/assets/images/leetcode.png&quot; alt=&quot;leetcode&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;codefights&quot;&gt;Codefights&lt;/h2&gt;
-
-&lt;p&gt;Codefights offers a slightly different approach to practice problems. In addition to hundreds of practice problems that are archived on the site, there are constant “active” challenges refreshing to ensure new content is delivered regularly. Top companies such as Uber, GoDaddy, Quora, and Dropbox, to name a few, also have code bots on Codefights. This enables you to go against both company bots and their own practice bots in head to head coding challenges. The challenges are timed and scored, and managed by the Codefights team and the companies that created them.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://codefights.com&quot;&gt;Codefights&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;/assets/images/codefights.png&quot;&gt;&lt;img src=&quot;/assets/images/codefights.png&quot; alt=&quot;codefights&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;coderbyte&quot;&gt;Coderbyte&lt;/h2&gt;
-
-&lt;p&gt;Coderbyte compiles their coding challenges into courses tailored towards a specific goal. Some of the offerings at Coderbyte include Coding Bootcamp Prep and Job Interview Prep. Coderbtye also offers internal and external resources to teach concepts like variables, conditionals, functions, and loops in Javascript. Another quirk of Coderbyte is their mobile coding quizzes, accessible via mobile device.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://coderbyte.com/&quot;&gt;Coderbyte&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;/assets/images/coderbyte.png&quot;&gt;&lt;img src=&quot;/assets/images/coderbyte.png&quot; alt=&quot;coderbyte&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
-
-&lt;p&gt;These are all of the coding challenge websites that I’ve been able to practice on in my own time. There are many more websites and resources available to continue practicing, I couldn’t possibly list them all in one blog post. I hope you enjoyed taking some time to read about TDD (can you remember what that stands for?), practice problems, and how they are useful to you. If you enjoyed reading, check out some of my other posts, or shoot me an email if you have any feedback! Happy coding, and remember PRACTICE MAKES PERFECT!!&lt;/p&gt;
-
-</description>
-        <pubDate>Mon, 19 Sep 2016 00:00:00 -0400</pubDate>
-        <link>http://127.0.0.1:4000//posts/enter-the-programming-dragon/</link>
-        <guid isPermaLink="true">http://127.0.0.1:4000//posts/enter-the-programming-dragon/</guid>
-        
-        <category>practice practice practice</category>
         
         
         <category>posts</category>
