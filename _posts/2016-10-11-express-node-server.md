@@ -2,7 +2,7 @@
 bg: "aurora.jpg"
 layout: post
 title:  "Express Development"
-crawlertitle: "Express"
+crawlertitle: "Express Yourself"
 summary: "Setting up a simple server with Express"
 date:   2016-10-11
 categories: posts
