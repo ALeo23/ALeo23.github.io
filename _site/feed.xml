@@ -6,9 +6,88 @@
 </description>
     <link>http://127.0.0.1:4000//</link>
     <atom:link href="http://127.0.0.1:4000//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 12 Oct 2016 00:04:23 -0400</pubDate>
-    <lastBuildDate>Wed, 12 Oct 2016 00:04:23 -0400</lastBuildDate>
+    <pubDate>Wed, 19 Oct 2016 00:08:58 -0400</pubDate>
+    <lastBuildDate>Wed, 19 Oct 2016 00:08:58 -0400</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
+    
+      <item>
+        <title>Angular and APIs</title>
+        <description>&lt;h2 id=&quot;angular-1&quot;&gt;Angular 1&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;For the purposes of this article, we’ll be discussing Angular 1 and not Angular 2. I hope to be able to make a blog post about Angular 2 in the future when I have time to get my hands on it.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Angular is an MVC (though this is much debated, MV* if you prefer) web framework built using our favorite language, Javascript. Angular is developed by Google and extends HTML functionality to make use of dynamic rendering. Gone are the days of simple, static webpages. With frameworks like React and Backbone alongside Angular, the web is becoming a content-rich dynamic place to share information, and applications still need to keep up with user expectations. These applications are designed to load content quickly and I find writing code to be faster when using a framework like Angular, because it enforces &lt;em&gt;modularity.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h6 id=&quot;a-note-about-modularity&quot;&gt;A note about modularity&lt;/h6&gt;
+
+&lt;p&gt;Modular code is broken into small re-usable parts that can serve more than one specific purpose. Being modular will make you a better programmer because you will write more efficient code that it easier to follow and understand. Coding in a modular style also helps me to understand both the framework I’m utilizing and the data flow inside my own application.&lt;/p&gt;
+
+&lt;p&gt;Angular is an opinionated framework, which means that its structure is a little rigid, and you’ve got to play by Angular’s rules. Though once you learn the rules and jargon, playing with Angular can be a real blast. Don’t fret, Angular has extensive and thorough &lt;a href=&quot;https://docs.angularjs.org/api&quot;&gt;documentation&lt;/a&gt; available. Angular makes use of built-in HTML attributes, as well as some of their own to extend functionality. Angular’s attribute tags can be recognized by their &lt;code class=&quot;highlighter-rouge&quot;&gt;ng-&lt;/code&gt; prefix. I’ll cover a few of the more common tags and how you can use them to get started.&lt;/p&gt;
+
+&lt;h2 id=&quot;ng--tags&quot;&gt;‘ng-‘ tags&lt;/h2&gt;
+
+&lt;p&gt;Angular uses custom attribute tags on HTML elements to help you render dynamic content and manage two way data binding. Two way data binding is one of Angular’s unique features that can make it more convenient to work with than other frameworks. Two way data binding means that there is communication going TO the model FROM the view and vice versa. This two way relationship means that the model and view are in a constant similar state. When data updates on the model, the view updates as well, updating the UI. When data updates on the view, then the model is updated to reflect the mutated data, which is great for handling user input. Remember that our view is represented by an HTML element being rendered on the screen. There are dozens of built-in directives designed to make your time with Angular more productive. In Angular, the controller is the glue between the model and view that keeps them together, and manages the two way data flow.&lt;/p&gt;
+
+&lt;h2 id=&quot;examples-using-travelr&quot;&gt;Examples Using Travelr&lt;/h2&gt;
+
+&lt;p&gt;Here I’ll show some of the code from my own Angular app called &lt;a href=&quot;https://travelr-mvp.herokuapp.com/&quot;&gt;Travelr&lt;/a&gt;. Travelr is a free, open-source app coded using Express, Node, and Angular. If you’re interested in Express or Node, check out last week’s post, &lt;a href=&quot;https://aleo23.github.io/posts/express-node-server/&quot;&gt;all about Express&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ng-app&lt;/code&gt; is the way default way to assign an Angular module to an HTML file; this will automatically bootstrap the application. Assign &lt;code class=&quot;highlighter-rouge&quot;&gt;ng-app&lt;/code&gt; the name of your app that you designed in your app file. In my case, I used the name of my app, travelr.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/ang-app.png&quot;&gt;&lt;img src=&quot;/assets/images/ang-app.png&quot; alt=&quot;ang-app&quot; /&gt;&lt;/a&gt;
+&lt;em&gt;The ng-app tag usually goes on the html tag. ng-cloak here is preventing our page from loading before the handlebars/mustaches have injected the desired data.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ng-controller&lt;/code&gt; is used to assign a controller to an element and its nested elements. Doing so will make methods and properties defined inside the controller available in our HMTL.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/ang-controller.png&quot;&gt;&lt;img src=&quot;/assets/images/ang-controller.png&quot; alt=&quot;ang-controller&quot; /&gt;&lt;/a&gt;
+&lt;em&gt;Here we see how to apply a controller to an element within our app.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ng-model&lt;/code&gt; binds a specific element (view) to a model associated with the element’s controller. The controller maintains a relationship between the model and the designated view.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/ang-model.png&quot;&gt;&lt;img src=&quot;/assets/images/ang-model.png&quot; alt=&quot;ang-model&quot; /&gt;&lt;/a&gt;
+&lt;em&gt;In the weather portion of Travelr, to search the API, the user must enter their search terms into the input fields. The input fields pass the data along through the ng-model whenever they are updated.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ng-click&lt;/code&gt; is a handy way of binding a function on the controller to an HTML element. The function &lt;code class=&quot;highlighter-rouge&quot;&gt;findWeather&lt;/code&gt; is being called by our new click handler. Let’s see what that code does with the query object passed into it.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/ang-click.png&quot;&gt;&lt;img src=&quot;/assets/images/ang-click.png&quot; alt=&quot;ang-click&quot; /&gt;&lt;/a&gt;
+&lt;em&gt;The click event is calling the findWeather function, which in turn calls fetchWeather, and that calls getWeather.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Here you’ll see the query object we’ve been passing in to get the weather. Not yet pictured is the getWeather function, which handles getting the data from the API. The models defined in our input tags are changing the &lt;code class=&quot;highlighter-rouge&quot;&gt;city&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;state&lt;/code&gt; properties on our query before passing it through our asynchronous function chain whenever the user changes the input.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/ang-services.png&quot;&gt;&lt;img src=&quot;/assets/images/ang-services.png&quot; alt=&quot;ang-services&quot; /&gt;&lt;/a&gt;
+&lt;em&gt;getWeather passes the query to the Yahoo Weather API, which works around the globe and returns the data in a promise.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Finally, we pass our query object in to the &lt;code class=&quot;highlighter-rouge&quot;&gt;getWeather&lt;/code&gt; function and save our data when the data returns to our &lt;code class=&quot;highlighter-rouge&quot;&gt;findWeather&lt;/code&gt; function. The properties on the saved data, in this case the saved data from my GET request, is on the &lt;code class=&quot;highlighter-rouge&quot;&gt;place&lt;/code&gt; property. Using the API documentation for the Yahoo Weather API, I was able to navigate the saved object and inject the desired properties into my HTML using &lt;strong&gt;{{ handlebars/mustaches }}&lt;/strong&gt;, whatever you prefer to call them. I like to imagine them as a mustached man riding a bike.&lt;/p&gt;
+
+&lt;h2 id=&quot;api-ngular&quot;&gt;API-ngular&lt;/h2&gt;
+
+&lt;p&gt;At first, manipulating data through an API in Angular seemed like a daunting task. I started my project, taking it one step at a time, writing modular code and focusing on a minimum viable product. I suggest working at a manageable pace, and focusing on one aspect of your code at a time. My personal strategy was to make a couple GET requests to the desired API using Postman, then hard code the data into my application, and render it the way I wanted. This way, I knew what to expect for a result, and had one less thing to debug when things weren’t rendering as expected (surprise!). Once my app was rendering correctly, I started hooking up the API. From there, it was as simple as saving the data and deleting my hard coded information. In addition, keep in mind a view is the data being rendered on the page, usually in the form of an HTML element. A more thorough version of Travelr’s source code is available on a github &lt;a href=&quot;https://github.com/ALeo23/travelr&quot;&gt;repo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Check out the links below if you’d like to learn more about Angular, in particular, scotch.io has many great resources for quirky problems and solutions you may run into during your Angular adventures.&lt;/p&gt;
+
+&lt;p&gt;Happy coding!&lt;/p&gt;
+
+&lt;h2 id=&quot;see-also&quot;&gt;See Also&lt;/h2&gt;
+
+&lt;p&gt;-&lt;a href=&quot;https://expressjs.com/&quot;&gt;Express&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;-&lt;a href=&quot;https://angularjs.org/&quot;&gt;Angular JS&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;-&lt;a href=&quot;https://docs.angularjs.org/tutorial&quot;&gt;Angular’s Official Tutorial&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;-&lt;a href=&quot;https://scotch.io/&quot;&gt;scotch.io&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 18 Oct 2016 00:00:00 -0400</pubDate>
+        <link>http://127.0.0.1:4000//posts/angular-and-apis/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000//posts/angular-and-apis/</guid>
+        
+        <category>Integrating APIs into your Angular Views</category>
+        
+        
+        <category>posts</category>
+        
+      </item>
     
       <item>
         <title>Express Development</title>
@@ -215,81 +294,6 @@ A picture is worth 1,000 words, or so they say.&lt;/p&gt;
         <guid isPermaLink="true">http://127.0.0.1:4000//posts/protecting-against-xss/</guid>
         
         <category>Cross Site Scripting</category>
-        
-        
-        <category>posts</category>
-        
-      </item>
-    
-      <item>
-        <title>Recursive Functions</title>
-        <description>&lt;h1 id=&quot;what-is-recursion&quot;&gt;What is recursion?&lt;/h1&gt;
-
-&lt;p&gt;Recursion is a computer science method where a solution can be derived from some amount of smaller solutions. This often means that a function will have to call upon itself with some sort of reduction until it reaches a base case. The base case is when the desired result can be found without another call to the function. This base case will keep the function from continually calling upon itself infinitely. Recursion can almost always be used in place of iteration and also save some time and add elegance to your code. Some examples of functions you could write using recursion are exponent and greatest common divisor. You could also implement a function that takes a given number of rounds and returns all possible moves for a rock paper scissors match or all possible combinations of change for a given dollar amount.&lt;/p&gt;
-
-&lt;h1 id=&quot;recursive-functions-in-javascript&quot;&gt;Recursive Functions in Javascript&lt;/h1&gt;
-
-&lt;p&gt;There are a few iterative functions that you may already know how to solve with a &lt;code class=&quot;highlighter-rouge&quot;&gt;for&lt;/code&gt; loop or even a call to &lt;code class=&quot;highlighter-rouge&quot;&gt;.forEach()&lt;/code&gt; that are great practice problems to get started on your way to understanding recursion. Recursion is not a concept that most people will pick up overnight, or in a short span of time; recursion will most likely take you some time to master and that’s OK. I’m here to help you get started on your way to mastering recursion.&lt;/p&gt;
-
-&lt;h6 id=&quot;countdown&quot;&gt;Countdown&lt;/h6&gt;
-
-&lt;p&gt;This function is a pretty simple one that we are going to use for illustrative purposes. Countdown is a function that will log numbers to the console until it reaches 0. Take a moment to think about how you would solve this using an iterative &lt;code class=&quot;highlighter-rouge&quot;&gt;for&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;while&lt;/code&gt; loop. We’re going to be solving this using recursion, but it helps to have an illustration in your mind for comparison. What do you think the base case will be? Hint: I gave you the answer already inside this section; recursively read this paragraph until you figure out the base case. If you said our base case will be when the number passed in is equal to 0, you are correct! Our base case is when we want our recursive function to terminate, and start moving back up the call stack. Countdown(5) would look something like this:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;countdown&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;countdown&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Our function is going to continue logging &lt;code class=&quot;highlighter-rouge&quot;&gt;number&lt;/code&gt; to the console until &lt;code class=&quot;highlighter-rouge&quot;&gt;number&lt;/code&gt; is 0, in which case it will finally return and stop calling itself. Please note that alternatively, you &lt;em&gt;could&lt;/em&gt; make your base case 1 and call &lt;code class=&quot;highlighter-rouge&quot;&gt;console.log(number)&lt;/code&gt; one last time before returing, in order to eliminate one step from the process for optimization, but I felt the current implementation was clearer. If this base case was omitted, your computer would continue logging &lt;code class=&quot;highlighter-rouge&quot;&gt;number&lt;/code&gt; to the console until it ran out of memory or the interpreter is shut down. I highly recommend not trying this, or at least saving your work first.&lt;/p&gt;
-
-&lt;h6 id=&quot;factorial&quot;&gt;Factorial&lt;/h6&gt;
-
-&lt;p&gt;A factorial of a number is the total sum of that number multiplied by every number between itself and 1, represented by &lt;code class=&quot;highlighter-rouge&quot;&gt;n!&lt;/code&gt;. For example 5! is 120, found by multiplying 5 * 4 * 3 * 2 * 1. Let’s break this out into some code and visualize this in Javascript.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;factorial&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;factorial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Let’s examine each element of this &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator&quot;&gt;ternary operator&lt;/a&gt; and see what our function is doing on each step. You might have noticed that we have an extra case specified besides our base case. This error case is checking if the number we are passing into our function is a negative, and returning null if it is, because factorials only apply to positive integers. The next case is our base case. We’ll come back to that in just a second, can you think of how we can get our number value to reach our base case?&lt;/p&gt;
-
-&lt;p&gt;By passing in &lt;code class=&quot;highlighter-rouge&quot;&gt;number - 1&lt;/code&gt; to our factorial function, we make another call to our factorial function with a number one value lower than the prevous iteration’s. We are also multiplying the result of that new function’s call by the current number. This will utilize what is known as the “call stack.” The call stack is a stack based data structure - last in, first out - that allows a function to keep track of where it was called from. The call stack will stand by, waiting for the bottom return value to return and move back up the chain. Finally, once 0 is passed in to our factorial function, we hit our base case, return the value 1.&lt;/p&gt;
-
-&lt;p&gt;The interpreter will then travel back up the call stack, and eventually return the amount:&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;120&lt;/strong&gt; once the 5 is multiplied by the return value of &lt;code class=&quot;highlighter-rouge&quot;&gt;factorial(4)&lt;/code&gt;, which was 24.&lt;/p&gt;
-
-&lt;p&gt;24 was returned when 4 was multiplied by the value of &lt;code class=&quot;highlighter-rouge&quot;&gt;factorial(3)&lt;/code&gt;, which was 6.&lt;/p&gt;
-
-&lt;p&gt;6 was returned when 3 was multiplied by the value of &lt;code class=&quot;highlighter-rouge&quot;&gt;factorial(2)&lt;/code&gt;, which was 2.&lt;/p&gt;
-
-&lt;p&gt;2 was returned when 2 was multiplied by the value of &lt;code class=&quot;highlighter-rouge&quot;&gt;factorial(1)&lt;/code&gt;, was was 1.&lt;/p&gt;
-
-&lt;p&gt;1 was returned when 1 was multiplied by the value of &lt;code class=&quot;highlighter-rouge&quot;&gt;factorial(0)&lt;/code&gt;, which was 1.&lt;/p&gt;
-
-&lt;p&gt;This time our result does not have another call to factorial because we have hit our base case and simply returned 1. If you follow this stack backwards you should see how one can get from 1 to 120 using the call to &lt;code class=&quot;highlighter-rouge&quot;&gt;factorial(5)&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h1 id=&quot;summary&quot;&gt;Summary&lt;/h1&gt;
-
-&lt;p&gt;To understand recursion, one must first understand recursion. For another excellent blog post on recursion, &lt;a href=&quot;https://aleo23.github.io/posts/recursive-functions/&quot;&gt;please see here.&lt;/a&gt; A recursive function calls upon itself until it reaches the specified base case. Always remember to specify a base case and get one step closer to the base case on each iteration. Otherwise your recursive function becomes a resource eating glutton and &lt;a href=&quot;https://www.youtube.com/watch?v=8fvTxv46ano&quot;&gt;all your base&lt;/a&gt; are belong to us. Many problems can be solved through recursion, and practice will achieve mastery. Try refactoring some of your currently implemented iterative functions in recursion and feel the power!&lt;/p&gt;
-
-&lt;h2 id=&quot;see-also&quot;&gt;See Also&lt;/h2&gt;
-
-&lt;p&gt;-&lt;a href=&quot;https://github.com/JS-Challenges/recursion-prompts&quot;&gt;Recursion Prompts&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;-&lt;a href=&quot;https://www.youtube.com/watch?v=k7-N8R0-KY4&quot;&gt;funfunfunction’s video all about Recursion, as part of his series on Functional programming in Javascript.&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;-&lt;a href=&quot;http://www.codecademy.com/courses/javascript-lesson-205&quot;&gt;Codecademy’s Recursion in Javascript Course&lt;/a&gt;&lt;/p&gt;
-
-</description>
-        <pubDate>Wed, 21 Sep 2016 00:00:00 -0400</pubDate>
-        <link>http://127.0.0.1:4000//posts/recursive-functions/</link>
-        <guid isPermaLink="true">http://127.0.0.1:4000//posts/recursive-functions/</guid>
-        
-        <category>infinite loops</category>
         
         
         <category>posts</category>

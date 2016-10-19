@@ -12,8 +12,8 @@ description: > # this means to ignore newlines until "baseurl:"
   A blog about Javascript, programming, and all of the beautiful and eccentric challenges one encounters while coding.
 baseurl: "" # the subpath of your site, e.g. /blog
 lang: "en"
-url: "https://aleo23.github.io" # the base hostname & protocol for your site
-#url: "http://127.0.0.1:4000/" #for tests
+#url: "https://aleo23.github.io" # the base hostname & protocol for your site
+url: "http://127.0.0.1:4000/" #for tests
 twitter_username: PrawdigeeAL
 github_username:  ALeo23
 disqus_username:
