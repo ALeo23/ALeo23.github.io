@@ -6,9 +6,108 @@
 </description>
     <link>http://127.0.0.1:4000//</link>
     <atom:link href="http://127.0.0.1:4000//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 19 Oct 2016 00:08:58 -0400</pubDate>
-    <lastBuildDate>Wed, 19 Oct 2016 00:08:58 -0400</lastBuildDate>
+    <pubDate>Sun, 30 Oct 2016 18:46:40 -0400</pubDate>
+    <lastBuildDate>Sun, 30 Oct 2016 18:46:40 -0400</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
+    
+      <item>
+        <title>Angular ControllerAs Syntax</title>
+        <description>&lt;h2 id=&quot;angular-controller&quot;&gt;Angular Controller&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;For the purposes of this article, we’ll be discussing Angular 1 and not Angular 2.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;In Angular, the controller is a constructor function. This controller is used to create a controller object, that adds properties to the scope of an attached view model. Normally, this is represented by Angular’s injectable &lt;code class=&quot;highlighter-rouge&quot;&gt;$scope&lt;/code&gt; object. Views are represented by DOM elements being rendered on the page. A view is typically bound to a model, and displays data dynamically based on the data in the model. $scope is a representation of the view model and can be replaced using a variable bound to the context of &lt;code class=&quot;highlighter-rouge&quot;&gt;this&lt;/code&gt;. View model is often shortened to vm in applications. A controller can be assigned to a view by applying a &lt;code class=&quot;highlighter-rouge&quot;&gt;ng-controller&lt;/code&gt; tag or specifying the controller in the router settings.&lt;/p&gt;
+
+&lt;h2 id=&quot;eliminating-scope&quot;&gt;Eliminating $scope&lt;/h2&gt;
+
+&lt;p&gt;Re-factoring code already using $scope is a quick way to see how easy it can be to implement this style change in your own work. To re-factor an existing controller you must:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;controller&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'LinksController'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Links&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{};&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;updateLinks&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;Links&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getAll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;links&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;links&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;links&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Remove the $scope being injected from the calback function’s arguments.&lt;/li&gt;
+  &lt;li&gt;Declare a new variable controllerVm and set it equal to &lt;code class=&quot;highlighter-rouge&quot;&gt;this&lt;/code&gt;. This will capture the context of the &lt;code class=&quot;highlighter-rouge&quot;&gt;this&lt;/code&gt; binding to prevent unexpected context changes.&lt;/li&gt;
+  &lt;li&gt;Place all properties previously on $scope onto the newly created view model object. Find and replace works great in this scenario.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;controller&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'LinksController'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Links&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LinksVm&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;LinksVm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{};&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;LinksVm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;updateLinks&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;Links&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getAll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;links&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;LinksVm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;links&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;links&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;controlleras&quot;&gt;controllerAs&lt;/h2&gt;
+
+&lt;p&gt;Firstly, we’ll look at adding a view model using a router. I’m a big fan of &lt;a href=&quot;https://github.com/angular-ui/ui-router&quot;&gt;ui-router&lt;/a&gt; for my Angular routing, and I’ll be covering that in this tutorial. If you’re not familiar with ui-router, you can also use this same syntax in the route settings for ng-route.&lt;/p&gt;
+
+&lt;p&gt;Normally, your routing in ui-router might look something like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/controller.png&quot;&gt;&lt;img src=&quot;/assets/images/controller.png&quot; alt=&quot;controller&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Using controllerAs, you can assign a specific view model as the controller for the view:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/controllerAs.png&quot;&gt;&lt;img src=&quot;/assets/images/controllerAs.png&quot; alt=&quot;controllerAs&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;ng--tags&quot;&gt;‘ng-‘ tags&lt;/h2&gt;
+
+&lt;p&gt;Generally, best practice is to assign the controller and controllerAs inside of your $stateProvider settings, but this assignment can also be made directly in the HTML. On the desired view, just modify your existing &lt;code class=&quot;highlighter-rouge&quot;&gt;ng-controller&lt;/code&gt; attribute to specify controllerAs, like below.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/controllerTag.png&quot;&gt;&lt;img src=&quot;/assets/images/controllerTag.png&quot; alt=&quot;controllerTag&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;touch-up-your-html&quot;&gt;Touch Up Your HTML&lt;/h2&gt;
+
+&lt;p&gt;Finally, any properties previously on $scope are now attached to the specified view model. You’ll need to edit your attributes within the HTML files associated with this controller to point to the correct properties. Once this is done, you should have completed your re-factor to using a view model. If something is not working, make sure that you have :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Created a new variable, such as FooVm, and set that equal to the current &lt;code class=&quot;highlighter-rouge&quot;&gt;this&lt;/code&gt; context.&lt;/li&gt;
+  &lt;li&gt;Removed $scope from the callback function being passed to the controller.&lt;/li&gt;
+  &lt;li&gt;Added all properties previously on $scope to the FooVm&lt;/li&gt;
+  &lt;li&gt;Set up a controllerAs property either in $stateParams OR in your view, not both&lt;/li&gt;
+  &lt;li&gt;Placed the FooVm using dot notation on the properties in your HTML previously on $scope&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/controllerAsVm.png&quot;&gt;&lt;img src=&quot;/assets/images/controllerAsVm.png&quot; alt=&quot;controllerAsVm&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;benefits-of-using-controlleras&quot;&gt;Benefits of Using controllerAs&lt;/h2&gt;
+
+&lt;p&gt;Using controllerAs doesn’t come with any astronomical benefits to your code by itself that would make it otherwise terrible code, but it greatly improves readability and understanding to your code. ControllerAs sits well with Javascript developers because it looks like a Javascript contructor, and it eliminates some of the confusion around understanding $scope. Using a view model will also provide clarity when deciding if methods should go in a controller or a factory. Be consistent with your naming conventions of view models, and avoid directly using &lt;code class=&quot;highlighter-rouge&quot;&gt;this&lt;/code&gt; to bind controller methods. Each controller should only be assigned to one view and should be as specific and clear as possible.&lt;/p&gt;
+
+&lt;p&gt;Stay tuned for an accompanying post on directives and improving your Angular skills further!&lt;/p&gt;
+
+&lt;p&gt;Below are some additional resources for Angular and this style, happy coding!&lt;/p&gt;
+
+&lt;h2 id=&quot;see-also&quot;&gt;See Also&lt;/h2&gt;
+
+&lt;p&gt;-&lt;a href=&quot;https://github.com/johnpapa/angular-styleguide&quot;&gt;John Papa’s Style Guide&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;-&lt;a href=&quot;https://docs.angularjs.org/guide/controller&quot;&gt;Angular Controllers&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;-&lt;a href=&quot;https://angularjs.org/&quot;&gt;Angular JS&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Sat, 29 Oct 2016 00:00:00 -0400</pubDate>
+        <link>http://127.0.0.1:4000//posts/angular-controllerAs-syntax/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000//posts/angular-controllerAs-syntax/</guid>
+        
+        <category>More readable code with fewer surprises</category>
+        
+        
+        <category>posts</category>
+        
+      </item>
     
       <item>
         <title>Angular and APIs</title>
@@ -250,50 +349,6 @@ A picture is worth 1,000 words, or so they say.&lt;/p&gt;
         <guid isPermaLink="true">http://127.0.0.1:4000//posts/escaping-html/</guid>
         
         <category>Removing dangerous characters</category>
-        
-        
-        <category>posts</category>
-        
-      </item>
-    
-      <item>
-        <title>Application Security</title>
-        <description>&lt;h2 id=&quot;information-is-important&quot;&gt;Information Is Important&lt;/h2&gt;
-
-&lt;p&gt;Computer hackers have been around for a long time now and their business only becomes more lucrative. With the internet and telecommunications continuing to exponenetially grow, the demand for personal information only gets higher. This means that your security needs to be top-notch at all times in order to keep your users, their data, and yourself safe from malicious attacks. There are many oppurtunities for vulnerability while browsing the internet and it is very important to be aware of all of the various ways that you can keep your data safe.&lt;/p&gt;
-
-&lt;h2 id=&quot;xss&quot;&gt;XSS&lt;/h2&gt;
-
-&lt;p&gt;XSS is an acronym for cross-site scripting, which is a style of attack where a malicious user injects code into your program unwillingly. This can lead to a myriad of bad events ranging from changing your page layout to stealing all of your client’s sensitive user data. Protecting against XSS is important if you want your users to be able to trust that your website is safe. Many different attack vectors, some larger than others, exist that all have different vulnerabilities that need to be protected against. The primary ways to defend against XSS are far too long and involved to cover in one blog post. I highly encourage you to check out the XSS Prevention Cheat Sheet that OWASP has put together &lt;a href=&quot;https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet&quot;&gt;here.&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;/assets/images/lock.jpg&quot;&gt;&lt;img src=&quot;/assets/images/lock.jpg&quot; alt=&quot;security&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;h6 id=&quot;owasp&quot;&gt;OWASP&lt;/h6&gt;
-
-&lt;p&gt;The Open Web Application Security Project is designed to be a worldwide organization that specializes in application security. OWASP’s main goal is to allow worldwide distribution of software that can be trusted. They provide information about internet security such as common attack vectors for information, vulnerabilities, and proactive actions you can take. OWASP has a variety of cheat sheets and documentation around ways to protect yourself and design your applications to protect your users.&lt;/p&gt;
-
-&lt;h2 id=&quot;same-origin-policy&quot;&gt;Same Origin Policy&lt;/h2&gt;
-
-&lt;p&gt;Scripts are normally only to be run on the site that originated them. Sounds secure right? This rule is designed to keep users/clients safe from malicious websites. An origin consists of a domain, a sub-domain, protocol, and port; all of these must match to run a script according to the same origin policy. This rule does not protect a server or application from the client. Furthermore, this would even mean that if you wanted to make some changes on your website on a localhost port, any calls to a third party service would fail. This is all part of the browser and is implemented by the developer of the browser. Chrome, for example, allows this service to be disabled by starting the application with the –disable-web-security flag.&lt;/p&gt;
-
-&lt;h6 id=&quot;cors&quot;&gt;CORS&lt;/h6&gt;
-
-&lt;p&gt;Cross Origin Resource Sharing, CORS for short, is accessed when a client makes a request to a server other than its origin. This allows websites across different domains to share data with one another. As you can imagine, this benefit is also a risk, as the data passed between websites can be sensitive. The owner of the server being accessed gets to determine the access rights for CORS on that server.&lt;/p&gt;
-
-&lt;p&gt;When a GET request is sent to the server, it will contain a CORS header. The server will then check to see if that client’s CORS header matches its Access-Control-Allow-Origin list. If the client has a valid header, the server will fulfill the requests, otherwise the server will send back an unauthorized error. Many servers disable CORS for security purposes, or use some sort of authentication before sending out data.  Authentication is usually verified in the form of user accounts, API keys, and cookies.&lt;/p&gt;
-
-&lt;p&gt;A flowchart can be found &lt;a href=&quot;http://www.html5rocks.com/static/images/cors_server_flowchart.png&quot;&gt;here&lt;/a&gt; that shows the different steps the server will go through when receiving a GET or POST request from an off site client.&lt;/p&gt;
-
-&lt;h6 id=&quot;jsonp&quot;&gt;JSONP&lt;/h6&gt;
-
-&lt;p&gt;JSONP is Javascript Object Notation with Padding. JSONP can be used to bypass CORS and make cross-domain requests for data. What does it mean when we say “padding” on a JSON object? On the server side, the JSON object just gets wrapped in a callback function before being sent off. If you put the URL inside of a script tag, the browser is going to execute the script tag and download the linked script file, and execute the file once it’s been loaded. Script tags are able to pull files from the internet across domains, much like loading jQuery from a CDN. JSONP can be dangerous because the code that is being executed came from another domain. This should only be used with trusted sources.&lt;/p&gt;
-
-</description>
-        <pubDate>Sat, 01 Oct 2016 00:00:00 -0400</pubDate>
-        <link>http://127.0.0.1:4000//posts/protecting-against-xss/</link>
-        <guid isPermaLink="true">http://127.0.0.1:4000//posts/protecting-against-xss/</guid>
-        
-        <category>Cross Site Scripting</category>
         
         
         <category>posts</category>
