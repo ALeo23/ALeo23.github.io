@@ -152,7 +152,7 @@ Angular provides directives as a powerful way to define custom behavior within a
 
 Below are some additional resources for Angular and this style, happy coding!
 
-As always, I'd love to hear your feedback via [email](mailto:aleo1337@gmail.com) or whatever form may be more convenient for you, more info in the About section!
+As always, I'd love to hear your feedback via [email](mailto:aleo1337@gmail.com)!
 
 ## See Also
 
