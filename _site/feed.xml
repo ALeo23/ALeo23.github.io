@@ -6,9 +6,172 @@
 </description>
     <link>http://127.0.0.1:4000//</link>
     <atom:link href="http://127.0.0.1:4000//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 30 Oct 2016 18:46:40 -0400</pubDate>
-    <lastBuildDate>Sun, 30 Oct 2016 18:46:40 -0400</lastBuildDate>
+    <pubDate>Sun, 06 Nov 2016 19:12:58 -0500</pubDate>
+    <lastBuildDate>Sun, 06 Nov 2016 19:12:58 -0500</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
+    
+      <item>
+        <title>Angular Directive Syntax</title>
+        <description>&lt;h2 id=&quot;angular-directives&quot;&gt;Angular Directives&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;For the purposes of this article, we’ll be discussing Angular 1 and not Angular 2.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.angularjs.org/guide/directive&quot;&gt;Angular directives&lt;/a&gt; are powerful markers placed on or in DOM elements that associate behavior with the marked element. When the DOM is loaded, Angular uses an HTML compiler to create the element needed into a template. A template function is also produced which links the scope to the template, to create data binding. Angular allows users to create custom directives in addition to the out of the box directives included with Angular.&lt;/p&gt;
+
+&lt;p&gt;Some of the commonly used directives  are &lt;code class=&quot;highlighter-rouge&quot;&gt;ngModel&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;ngIf&lt;/code&gt;. Angular also provides the ability to create custom directives, which can be defined as attributes, elements, classes, and comments. Angular recommends using attributes and elements directives over classes and comments, as it is easier to determine the element that the directive matches.&lt;/p&gt;
+
+&lt;h2 id=&quot;attribute-and-element-directives&quot;&gt;Attribute and Element directives&lt;/h2&gt;
+
+&lt;p&gt;Attribute directives are placed onto an HTML element to provide that element with the defined behavior. For example, the directives &lt;code class=&quot;highlighter-rouge&quot;&gt;ngShow&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;ngIf&lt;/code&gt; are both attribute directives. The key difference between &lt;code class=&quot;highlighter-rouge&quot;&gt;ngShow&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;ngIf&lt;/code&gt; is that &lt;code class=&quot;highlighter-rouge&quot;&gt;ngIf&lt;/code&gt; removes and recreates a DOM element, whereas &lt;code class=&quot;highlighter-rouge&quot;&gt;ngShow&lt;/code&gt; will toggle the element’s display property, but not remove the element from the DOM.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-show=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;!DetailsVm.poster_path&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://s2.dmcdn.net/Ub1O8/1280x720-mCQ.jpg&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-if=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;!DetailsVm.poster_path&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://i.ytimg.com/vi/MveqXxB12YA/hqdefault.jpg&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;em&gt;This is how one might use &lt;code class=&quot;highlighter-rouge&quot;&gt;ngShow&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;ngIf&lt;/code&gt; in their own code.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;The attribute directives above augment an existing HTML element and give that element a certain expected behavior. Element directives have many of the same powers and can be used in ways similar to templates in keeping code concise and modular.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;funny-cat&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-show=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;!DetailsVm.poster_path&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://s2.dmcdn.net/Ub1O8/1280x720-mCQ.jpg&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/funny-cat&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;funny-dog&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-if=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;!DetailsVm.poster_path&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://i.ytimg.com/vi/MveqXxB12YA/hqdefault.jpg&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/funny-dog&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;funny-cat&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;funny-dog&lt;/code&gt; are examples of custom element directives.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;creating-a-custom-directive&quot;&gt;Creating a Custom Directive&lt;/h2&gt;
+
+&lt;p&gt;The current project is a movie website that contains details about movies and TV shows accompanied by a robust search engine. A user can enter a search query and be taken to a results page, where a list of movies and TV shows awaits. In Angular, one solution would be to create an unordered list, and use &lt;code class=&quot;highlighter-rouge&quot;&gt;ngRepeat&lt;/code&gt; to fill that list with list item elements. This approach works, but can become extremely messy, depending on how much data is displayed on each search result. In an effort to develop modular, beautiful code, a custom directive can be used to inject HTML into a document from a template’s URL.&lt;/p&gt;
+
+&lt;p&gt;The program will first require a directive to be created on the accompanying controller. Using the search results example, the controller in question might be called ResultsController. Directives can take a few different options when created which define the behaviors bound to that DOM element. Angular’s &lt;code class=&quot;highlighter-rouge&quot;&gt;.directive&lt;/code&gt; takes two arguments by default; the first argument is the name of the directive, a string. A callback function is passed in as the second argument, which returns an object with configuration options for the directive.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!--restrict types--&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 'A' --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;search-result&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 'E' --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;search-result&amp;gt;&amp;lt;/search-result&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 'A' --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search-result&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/span&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;restrict&lt;/code&gt; - Restricts how a directive can be used
+    &lt;ul&gt;
+      &lt;li&gt;‘A’ - Directive can be used as an attribute on an HTML element&lt;/li&gt;
+      &lt;li&gt;‘E’ - Directive can be used as an HTML element&lt;/li&gt;
+      &lt;li&gt;‘C’ - Directive can be used as a class on an HTML element&lt;/li&gt;
+      &lt;li&gt;‘M’ - Directive can be used as a comment within the HTML
+        &lt;ul&gt;
+          &lt;li&gt;Comment directives are somewhat deprecated and &lt;code class=&quot;highlighter-rouge&quot;&gt;ng-repeat-start&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;ng-repeat-end&lt;/code&gt; should be used instead to populate &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;table&amp;gt;&lt;/code&gt; elements&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;replace&lt;/code&gt; - Determines whether HTML element declared on will be replaced
+    &lt;ul&gt;
+      &lt;li&gt;Takes a boolean value&lt;/li&gt;
+      &lt;li&gt;Ex. If an attribute directive is on a div, true would replace the div, and false would nest the directive inside the div&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;scope&lt;/code&gt; - Create an isolate scope for the directive to separate the scopes
+    &lt;ul&gt;
+      &lt;li&gt;Allows the outer scope to be mapped to the inner scope&lt;/li&gt;
+      &lt;li&gt;Makes results more dynamic so code is more DRY&lt;/li&gt;
+      &lt;li&gt;Scope can take a scope object as well to create a new scope for the directive&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;templateUrl&lt;/code&gt; - Defines path to the HTML file that contains HTML to insert&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;c1&quot;&gt;//Results is a factory defined in another file&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;angular&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'reviews.results'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[])&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//ResultsVm is defined inside the collapsed controller block&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//and mostly contains data to be inserted into the DOM&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;controller&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'ResultsController'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Results&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;directive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'searchResult'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;restrict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'AE'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;templateUrl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'app/results/searchResult.html'&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The custom behavior has been defined in the Javascript files and the HTML will need to be edited to reflect the new behvaior. Here’s the program without any custom directives:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;container&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!--Displays number of total results found from query. --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;h4&amp;gt;&lt;/span&gt;Your search returned  results.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h4&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-repeat=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;result in ResultsVm.results&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/#/details//&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;c&quot;&gt;&amp;lt;!--ng-if Hides results which are generally less useful --&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;result&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-if=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;result.poster_path !== null&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;resultPoster&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- If invalid poster_path or profile_path, don't display the image --&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-hide=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;!result.poster_path&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://image.tmdb.org/t/p/w185/&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-hide=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;!result.profile_path&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://image.tmdb.org/t/p/w185/&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;em&gt;If you’re not sure what ResultsVm means, go check out my blog post on using controllerAs!&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Ideally, we could re-factor this code to be two separate files, since we really have two separate intents here. One intent is that the program will need to display a list of search results. The other intent for the results page is that each search result will need to display details for one result. Creating a directive involves modifying the controller and creating a new HTML file to hold our directive.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!--app/results/searchResult.html--&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!--This code represents our list of search results. --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;container&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;h4&amp;gt;&lt;/span&gt;Your search returned  results.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h4&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!--Element directive is inserted here. --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;search-result&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-repeat=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;result in ResultsVm.results&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/search-result&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;There is a separation of concerns between displaying results and displaying details.These two files have been separated to reflect each concern, the above displaying all results, while the below displays the details of each result.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!--app/results/results.html--&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!--We can factor out this code as this will represent our search result. --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/#/details//&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;result&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-if=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;result.poster_path !== null&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;resultPoster&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-hide=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;!result.poster_path&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://image.tmdb.org/t/p/w185/&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-hide=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;!result.profile_path&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://image.tmdb.org/t/p/w185/&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-show=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;!result.poster_path &amp;amp;&amp;amp; !result.profile_path&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://dummyimage.com/185x275/000/fff&amp;amp;text=&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;em&gt;Take notice that the ng-repeat goes on the directive, as this is the item that needs to be repeated, for each result.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Above is an example of two different HTML files being used together to make up a primitive search results page. The difference is that we have refactored the code based on intent. The intention to display a list of search results has been placed into the first file. Using directives, the HTML compiler is instructed that this first file will need the contents of the second file. An element tag is created where the content will need to be injected, using the contents of the second file, and the &lt;code class=&quot;highlighter-rouge&quot;&gt;ngRepeat&lt;/code&gt; tells the compiler that this will happen more than once.&lt;/p&gt;
+
+&lt;h2 id=&quot;one-more-time&quot;&gt;One More Time&lt;/h2&gt;
+
+&lt;p&gt;Angular provides directives as a powerful way to define custom behavior within a program. Directives enforce clean, modular code that is more maintainable. The controller file is usually where directives are written and stored. The HTML will then need to be re-factored, or freshly written, to use the newly defined directives. Element and attribute directives are considered best practice and directive templateUrls should be used to keep the codebase concise and maintainable.&lt;/p&gt;
+
+&lt;p&gt;Below are some additional resources for Angular and this style, happy coding!&lt;/p&gt;
+
+&lt;p&gt;As always, I’d love to hear your feedback via &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#097;&amp;#108;&amp;#101;&amp;#111;&amp;#049;&amp;#051;&amp;#051;&amp;#055;&amp;#064;&amp;#103;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#046;&amp;#099;&amp;#111;&amp;#109;&quot;&gt;email&lt;/a&gt; or whatever form may be more convenient for you, more info in the About section!&lt;/p&gt;
+
+&lt;h2 id=&quot;see-also&quot;&gt;See Also&lt;/h2&gt;
+
+&lt;p&gt;-&lt;a href=&quot;https://angularjs.org/&quot;&gt;Angular JS&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;-&lt;a href=&quot;https://docs.angularjs.org/guide/directive&quot;&gt;Angular JS Directives&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;-&lt;a href=&quot;https://www.sitepoint.com/practical-guide-angularjs-directives/&quot;&gt;A Practical Guide to Using AngularJS Directives&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;-&lt;a href=&quot;https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md#directives&quot;&gt;John Papa’s Style Guide - Directives&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 06 Nov 2016 00:00:00 -0400</pubDate>
+        <link>http://127.0.0.1:4000//posts/angular-directive-syntax/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000//posts/angular-directive-syntax/</guid>
+        
+        <category>Custom Elements.</category>
+        
+        
+        <category>posts</category>
+        
+      </item>
     
       <item>
         <title>Angular ControllerAs Syntax</title>
@@ -285,70 +448,6 @@ A picture is worth 1,000 words, or so they say.&lt;/p&gt;
         <guid isPermaLink="true">http://127.0.0.1:4000//posts/optimizing-images/</guid>
         
         <category>Rendering Images Faster</category>
-        
-        
-        <category>posts</category>
-        
-      </item>
-    
-      <item>
-        <title>Escaping HMTL</title>
-        <description>&lt;h2 id=&quot;converting-values&quot;&gt;Converting Values&lt;/h2&gt;
-
-&lt;p&gt;Malicious users can ‘inject’ HTML directly into your webpage via XSS(more about that below). When we escape HTML, we replace potentially dangerous characters with their escaped equivalents. A couple examples are highlighted at the end of the section. Escape HTML anywhere that there is a potential for any kind of user input.&lt;/p&gt;
-
-&lt;p&gt;For instance, somebody accessed your vulnerable website and entered something like &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;script&amp;gt;setInterval(function() {alert(&quot;We're no strangers to memes&quot;)},0)&amp;lt;/script&amp;gt;&lt;/code&gt; into a search bar. This code would then be ran within your HMTL page, entering you into an infinite loop of alerts that allude to &lt;a href=&quot;https://www.youtube.com/watch?v=dQw4w9WgXcQ&quot;&gt;Rick Astley&lt;/a&gt; jokes. Super malicious. You can prevent this insane act of terror from perversing your webpage by correctly escaping the HTML.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//escapes to &amp;amp;amp;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//escapes to &amp;amp;lt;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//escapes to &amp;amp;gt;&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//escapes to &amp;amp;quot;&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//escapes to &amp;amp;#x27;&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//escapes to &amp;amp;#96;&lt;/span&gt;
-&lt;span class=&quot;sr&quot;&gt;/ /&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;escapes&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x2F&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;One way to get these escaped values is the &lt;code class=&quot;highlighter-rouge&quot;&gt;_.escape&lt;/code&gt; function included in the &lt;a href=&quot;http://underscorejs.org/#escape&quot;&gt;underscore.js&lt;/a&gt; library. The accompanying &lt;code class=&quot;highlighter-rouge&quot;&gt;_.unescape&lt;/code&gt; function can be used to convert these strings to their unescaped values. &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions&quot;&gt;Regular expressions&lt;/a&gt; can also be used to reject or replace strings that (potentially) contain an XSS atack. Note that you are not able to escape all of these using this method. Some of the above symbols can used to escape out of an HTML attribute value that is not quoted and it would be best to escape them. It is also best practice to quote all HMTL attributes for security purposes.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;/assets/images/keyboard.jpg&quot;&gt;&lt;img src=&quot;/assets/images/keyboard.jpg&quot; alt=&quot;escape&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;(You didn’t seriously click on that Rick Astley link did you?)&lt;/p&gt;
-
-&lt;h2 id=&quot;unicode&quot;&gt;Unicode&lt;/h2&gt;
-
-&lt;p&gt;Computers today are very powerful, capable machines, yet they’re still complex calculators that operate on numbers. All letter and symbol data that is input into a computer needs to be converted into some sort of number value in order to be interpreted by a computer. This process is referred to as &lt;em&gt;encoding&lt;/em&gt;; characters are encoded from letters into numbers. As with any other industry or project, a need for some sort of standardization quickly developed. &lt;a href=&quot;http://unicode.org/standard/WhatIsUnicode.html&quot;&gt;Unicode&lt;/a&gt; came in to save the day by providing a worldwide encoding standard. Unicode is more secure than the past systems, where programs would have to use multiple character encoding systems. This could lead to unexpected code being injected because all systems encode and transfer characters different. Their encoding standard is flexible and can be used across any language, spoken or programming, application, and platform. A healthy by-product of this flexibility is the worldwide availability of many software programs. Unicode eliminates a lot of the frustration involved with communicating with external networks and APIs.&lt;/p&gt;
-
-&lt;h6 id=&quot;utf-8--utf-16--utf-32&quot;&gt;UTF-8 / UTF-16 / UTF-32&lt;/h6&gt;
-
-&lt;p&gt;UTF-8 is the most commonly used type of the Unicode standard. Within Javascript and on the web, this will be the primary type you’ll work with. Other platforms such as Java, Windows, and Linux will use either UTF-16 or UTF-32 depending on their needs. UTF-16 and UTF-32 are two more currently implemented types of Unicode. These three versions are all fundamentally similar, but encode characters in different ways. UTF-8 provides up to four 8-bit bytes, UTF-16 holds up to two 16-bit code units and UTF-32 has one 32-bit code unit. No matter what version you are using, it is important to declare your charset using the appropriate HTML attribute within the meta tag. Characters can be transferred from one UTF type to another using algorithms found on the Unicode website. If you’re interested, check out their &lt;a href=&quot;http://unicode.org/faq/utf_bom.html&quot;&gt;FAQ&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;see-also&quot;&gt;See Also&lt;/h2&gt;
-
-&lt;p&gt;-&lt;a href=&quot;https://xss-game.appspot.com/&quot;&gt;A Game About XSS&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;-&lt;a href=&quot;https://hack.me/t/XSS&quot;&gt;hack.me An XSS Challenges Website&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;-&lt;a href=&quot;https://www.owasp.org/index.php/Main_Page&quot;&gt;OWASP’s Vast Security Wiki&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;-&lt;a href=&quot;http://underscorejs.org/#template&quot;&gt;Templates in Underscore&lt;/a&gt;&lt;/p&gt;
-
-</description>
-        <pubDate>Sun, 02 Oct 2016 00:00:00 -0400</pubDate>
-        <link>http://127.0.0.1:4000//posts/escaping-html/</link>
-        <guid isPermaLink="true">http://127.0.0.1:4000//posts/escaping-html/</guid>
-        
-        <category>Removing dangerous characters</category>
         
         
         <category>posts</category>
