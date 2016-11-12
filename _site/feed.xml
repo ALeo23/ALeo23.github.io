@@ -6,9 +6,139 @@
 </description>
     <link>http://127.0.0.1:4000//</link>
     <atom:link href="http://127.0.0.1:4000//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 06 Nov 2016 19:12:58 -0500</pubDate>
-    <lastBuildDate>Sun, 06 Nov 2016 19:12:58 -0500</lastBuildDate>
+    <pubDate>Fri, 11 Nov 2016 21:16:23 -0500</pubDate>
+    <lastBuildDate>Fri, 11 Nov 2016 21:16:23 -0500</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
+    
+      <item>
+        <title>What is TypeScript?</title>
+        <description>&lt;h2 id=&quot;typescript&quot;&gt;TypeScript&lt;/h2&gt;
+
+&lt;p&gt;TypeScript is a strictly typed superset of Javascript. Typescript is developed by Microsoft, and introduces static typing into Javascript. In addition to static typing, TypeScript also adds class based object oriented programming, making use of ES6 classes. TypeScript transcompiles into Javascript before it can be run, and this is where most of the magic happens. When transcompiling the code, TypeScript will fire any errors it finds with assigned typing into the terminal. Note that the code will still be built, and can be run, though probably not as expected, with the incorrect types being used or applied. The warnings provided indicate that there is a problem, but this does not halt program execution. TypeScript also lends to an organzied code base, enforcing modularity with the use of code modules. It’s also worth mentioning that &lt;a href=&quot;https://code.visualstudio.com/&quot;&gt;Visual Studio Code&lt;/a&gt; is free, open source software that comes built in with robust support for TypeScript. If you’d still prefer to use Sublime Text, they’ve got a &lt;a href=&quot;https://packagecontrol.io/search/typescript&quot;&gt;few plugins&lt;/a&gt; for TypeScript support as well!&lt;/p&gt;
+
+&lt;h2 id=&quot;static-typing&quot;&gt;Static Typing&lt;/h2&gt;
+
+&lt;p&gt;Static Typing is used in many programming languages, but Javascript is not one of them. Static typing is typically used in both functional programming as well as object oriented programming and provides programmers with a layer of logic checking during development. When the source code is written, variables, properties, methods, a function’s input and output values, and other data will be assigned a type. Primitive data types include number, string, boolean, undefined, and null. Other data values include object and array, along with more special objects like Promises. Static typing is technically optional, and does not need to be provided for every single variable in the code base. A variable is statically typed when it is declared using a &lt;code class=&quot;highlighter-rouge&quot;&gt;: type&lt;/code&gt; syntax, with any assignments(&lt;code class=&quot;highlighter-rouge&quot;&gt;=&lt;/code&gt;) coming after the type declaration. Similarly, a return value’s static typing will go after the parameter declarations, before the function body. Some annotated example code should clarify on the positioning of where to define static types.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// Inside our TypeScript file (`.ts`)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Static types are defined when the variable is initialized&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// To the left of the '=' if the variable is being assigned to a value&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;food&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Pasta'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;customersPerDay&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;happy&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;declaration&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Note that the code above would look different once transcompiled into a Javascript(&lt;code class=&quot;highlighter-rouge&quot;&gt;.js&lt;/code&gt;) file and would not have the static typing definitions within the code. TypeScript also includes “interfaces” which are like blueprints for an object. An &lt;code class=&quot;highlighter-rouge&quot;&gt;interface&lt;/code&gt; defines the structure of an object, i.e. the properties that it should contain and their corresponding types. Static typing is pretty straightforward with a simple variable declaration, but it can get a little more complicated once combined with ES6 classes, especially for the unfamilar.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// Inside our TypeScript file (`.ts`)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Static types are defined when the property/method is created on the object&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// This is an import statement specifically from Angular 2&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Don't worry too much about what we're importing so much as how we're doing it&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;OnInit&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/core'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Create a Hero class that can be exported and used in other code modules&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Hero&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// Heroes have an id, which is an identifying number&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// The hero's name will be stored as a string&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;//an interface for our Hero, for illustration purposes&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Hero&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// this provides type checking for an object, defining its expected properties&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kr&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;HeroesComponent&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;OnInit&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// declare a heroes property for our HeroesComponent - `HeroesComponent.heroes`&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// `: Hero[]` - This is a static type that says &quot;This will be an array of Hero objects&quot;&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//there is no value being assigned to heroes before `ngOnInit` executes&lt;/span&gt;
+
+  &lt;span class=&quot;nl&quot;&gt;heroes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Hero&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[];&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// `: Hero` - This is a static type that says &quot;This will be an instance of a Hero object&quot;&lt;/span&gt;
+
+  &lt;span class=&quot;nl&quot;&gt;selectedHero&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Hero&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// private properties are declared inside the constructor to make available to methods&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// public properties can also be declared by using `public` in a similar fashion&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;kr&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;heroService&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;HeroService&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// initialize properties using `public` here inside the constructor&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// `: void` - indicates that the function will have no return value&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;ngOnInit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getHeroes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;getHeroes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;heroService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getHeroes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;heroes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;heroes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;heroes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// provide static typing for a function/method parameter within the declaration&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;gotoDetail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;hero&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Hero&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'/detail'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;hero&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;router&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;navigate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// `: any` can also be used for a variable or other value that can have any type&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;any&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Anything!'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;em&gt;This code is an excerpt from the Angular Tour of Heroes tutorial, available &lt;a href=&quot;https://angular.io/docs/ts/latest/tutorial/&quot;&gt;here&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;The code above uses an import statement to import a core module from Angular 2. This post is about TypeScript, and I will not go further into the details of Angular 2. This import illustrates how a module can be imported into a file using ES6 Modules. &lt;code class=&quot;highlighter-rouge&quot;&gt;HeroComponent&lt;/code&gt; is defined with ‘implements &lt;code class=&quot;highlighter-rouge&quot;&gt;OnInit&lt;/code&gt;’ which makes the &lt;code class=&quot;highlighter-rouge&quot;&gt;OnInit&lt;/code&gt; module available to &lt;code class=&quot;highlighter-rouge&quot;&gt;HeroComponent&lt;/code&gt;. Functions can expect a return value of &lt;code class=&quot;highlighter-rouge&quot;&gt;Promise&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;Observable&lt;/code&gt; attached to a data type, throwing an error if an object is not being wrapped correctly. TypeScript will check a function’s output to make sure a Promise is being returned, if assigned, like below.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;nx&quot;&gt;getHeroes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Hero&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;heroesUrl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+             &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toPromise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+             &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Hero&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[])&lt;/span&gt;
+             &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;handleError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;em&gt;Another code sample from the Tour of Heroes tutorial; the function above expects a promisified version of a Hero array as an output.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;modules&quot;&gt;Modules&lt;/h2&gt;
+
+&lt;p&gt;TypeScript expresses a great concern for modularity. Modular code is effective, because it is easier to maintain, especially at large scale. Modularity also enforces DRY (Don’t Repeat Yourself) code by creating reusable components that can be used multiple places in a code base without being repeated. TypeScript accomplishes this using import/export (ES6 Modules), similar to using &lt;code class=&quot;highlighter-rouge&quot;&gt;require()&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;module.exports&lt;/code&gt; in Node. Functions, objects, and other variables can be exported from one file, and imported into one or many other files to be used. Long module names can also be shortened when exported using the &lt;code class=&quot;highlighter-rouge&quot;&gt;as&lt;/code&gt; syntax pictured below.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/exportAs.png&quot;&gt;&lt;img src=&quot;/assets/images/exportAs.png&quot; alt=&quot;exportAs&quot; /&gt;&lt;/a&gt;
+&lt;em&gt;Above the accompanying import would just have to import sleepCheck and not ReallyLongExportedInconvenientButNecessaryFunctionName.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;start-using-typescript&quot;&gt;Start Using TypeScript&lt;/h2&gt;
+
+&lt;p&gt;TypeScript uses a CLI to compile code, which can be obtained using npm. The TypeScript CLI uses a command &lt;code class=&quot;highlighter-rouge&quot;&gt;tsc&lt;/code&gt; to compile the data and also has support for a watch command that will compile whenever it detects a change in the files. Static typing is optional in TypeScript, so not every piece of data declared will need to be assigned a type. The file extension associated with TypeScript is &lt;code class=&quot;highlighter-rouge&quot;&gt;.ts&lt;/code&gt; and these files compile to &lt;code class=&quot;highlighter-rouge&quot;&gt;.js&lt;/code&gt; files, because TypeScript is a superset of Javascript. To use a static type, place a colon after the piece of data to be assigned a type, and declare the type after the colon. Primitive and non-primitive data types can be statically typed, including &lt;a href=&quot;https://basarat.gitbooks.io/typescript/content/docs/promise.html&quot;&gt;Promises&lt;/a&gt; and &lt;a href=&quot;https://scotch.io/tutorials/angular-2-http-requests-with-observables&quot;&gt;Observables&lt;/a&gt;. To get started without a local install, there is a &lt;a href=&quot;http://www.typescriptlang.org/play/&quot;&gt;TypeScript Playground&lt;/a&gt; available, which is great for seeing how the code will compile. To install on a local machine, just use &lt;code class=&quot;highlighter-rouge&quot;&gt;npm install -g typescript&lt;/code&gt; and compile code locally!&lt;/p&gt;
+
+&lt;h2 id=&quot;see-also&quot;&gt;See Also&lt;/h2&gt;
+
+&lt;p&gt;-&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://www.typescriptlang.org/docs/tutorial.html&quot;&gt;TypeScript Getting Started&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://www.typescriptlang.org/docs/handbook/classes.html&quot;&gt;ES6 Classes in TypeScript&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Sun, 06 Nov 2016 00:00:00 -0400</pubDate>
+        <link>http://127.0.0.1:4000//posts/typescript-what-is-it/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000//posts/typescript-what-is-it/</guid>
+        
+        <category>Strictly Typed</category>
+        
+        
+        <category>posts</category>
+        
+      </item>
     
       <item>
         <title>Angular Directive Syntax</title>
@@ -149,7 +279,7 @@
 
 &lt;p&gt;Below are some additional resources for Angular and this style, happy coding!&lt;/p&gt;
 
-&lt;p&gt;As always, I’d love to hear your feedback via &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#097;&amp;#108;&amp;#101;&amp;#111;&amp;#049;&amp;#051;&amp;#051;&amp;#055;&amp;#064;&amp;#103;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#046;&amp;#099;&amp;#111;&amp;#109;&quot;&gt;email&lt;/a&gt; or whatever form may be more convenient for you, more info in the About section!&lt;/p&gt;
+&lt;p&gt;As always, I’d love to hear your feedback via &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#097;&amp;#108;&amp;#101;&amp;#111;&amp;#049;&amp;#051;&amp;#051;&amp;#055;&amp;#064;&amp;#103;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#046;&amp;#099;&amp;#111;&amp;#109;&quot;&gt;email&lt;/a&gt;!&lt;/p&gt;
 
 &lt;h2 id=&quot;see-also&quot;&gt;See Also&lt;/h2&gt;
 
@@ -393,61 +523,6 @@
         <guid isPermaLink="true">http://127.0.0.1:4000//posts/express-node-server/</guid>
         
         <category>Using node.js</category>
-        
-        
-        <category>posts</category>
-        
-      </item>
-    
-      <item>
-        <title>Optimizing Images</title>
-        <description>&lt;h2 id=&quot;images-as-data&quot;&gt;Images as Data&lt;/h2&gt;
-
-&lt;p&gt;Computer images exist everywhere on the internet. Without them, the world would be a pretty bleak wasteland of text. Pictures display a wide variety of content across the internet, ususally related to the context. Wiki pages use images related to their content, social media profiles have pictures of their users, and games utilize special pictures called &lt;a href=&quot;https://css-tricks.com/css-sprites/&quot;&gt;sprites&lt;/a&gt; to render characters more efficiently.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;/assets/images/mountains.jpg&quot;&gt;&lt;img src=&quot;/assets/images/mountains.jpg&quot; alt=&quot;mountains&quot; /&gt;&lt;/a&gt;
-A picture is worth 1,000 words, or so they say.&lt;/p&gt;
-
-&lt;h6 id=&quot;image-file-size&quot;&gt;Image File Size&lt;/h6&gt;
-
-&lt;p&gt;As you probably already know, data is stored on a computer in bytes, more often respresented by their larger values: kilobytes, megabytes, and gigabytes. If a picture is worth 1,000 words, how many bytes does it take? Trick question. Picture size is dependent on many factors, but the words you use to describe them in your blog post don’t affect the image size. Generally speaking, the more high quality an image is, the larger file size it will have. A main contributor to the quality is the image resolution.&lt;/p&gt;
-
-&lt;h2 id=&quot;compressing-images&quot;&gt;Compressing Images&lt;/h2&gt;
-
-&lt;p&gt;Images can be resized and optimized to fit your needs in order to decrease load times. Most times, a small image like the one above does not need to be a 4K resolution ultra HD picture to convey the details you’re trying to get across. The best practice is to only use the size that you need for your application.&lt;/p&gt;
-
-&lt;p&gt;If the photo is going to be re-sized by your application to be 200px x 200px then it would be a great performance increase to take that load off of your CSS and just do it to the picture itself. To put it simply, making a file smaller, will make it load faster. Today, users demand web apps that are fast and responsive, and simply won’t use apps that feel old or dead. So, what’s the easiest way to re-size these images?&lt;/p&gt;
-
-&lt;h2 id=&quot;imageoptim&quot;&gt;ImageOptim&lt;/h2&gt;
-
-&lt;p&gt;Today, I discovered a new tool that I had to share: ImageOptim. ImageOptim is an application that comes with a slew of great &lt;a href=&quot;https://imageoptim.com/api&quot;&gt;features&lt;/a&gt; designed to streamline the performance of your deployment. One thing I really like about ImageOptim, is I don’t lose image quality when re-sizing the image. My images look exactly the same in production, but load much faster. The comet image on my main blog page now loads ~35kb less than it was before; reducing the amount of data needed to be retrieved from the server before the image can be loaded on screen. ImageOptim will also remove unnecessary metadata, comments, and embedded thumbnails to shrink down on size.&lt;/p&gt;
-
-&lt;h6 id=&quot;versions-of-imageoptim&quot;&gt;Versions of ImageOptim&lt;/h6&gt;
-
-&lt;p&gt;ImageOptim has a few different options available to access their services. Currently, I’m on the Mac App which installs quick, takes up little space, and is very easy to use with a drag and drop interface. ImageOptim will modify the original files that you drag and drop to re-size; I can recommend backing up any images you plan to manipulate. Drag and drop your files in the GUI to re-size and wait for the program to do its magic. I noticed that this did take some time to process the files provided, so performing the work yourself on your local machine before you publish sounds like the most stable option.&lt;/p&gt;
-
-&lt;p&gt;ImageOptim also offers a couple of web services for users who do not wish to modify their local files. Their API is currently in beta and you can sign up to use it on their website. Listed in their documentation, you can also find out how to optimize on the fly. No back-end programming is needed to get this started; you’ll just edit your image URLs to point to the ImageOptim server and they’ll optimize them before sending to the client. Keep in mind that while this optimizes your images, this also involves another GET request and an outside service, which may actually detract from performance.&lt;/p&gt;
-
-&lt;h2 id=&quot;take-aways&quot;&gt;Take Aways&lt;/h2&gt;
-
-&lt;p&gt;Images are pictures on the internet that are used to display various forms of data. Images are made up of pixels, and the amount of pixels that make up an image is determined by its resolution. A higher resolution means a more detailed image and should only be used when needed. ImageOptim is a powerful and fast tool designed for re-sizing images based on user needs. Re-sizing an image manually, rather than having our code do it for us, causes our code to execute faster due to less required operations. The webpage will also load faster as there is less data being transferred over the wire.&lt;/p&gt;
-
-&lt;h2 id=&quot;see-also&quot;&gt;See Also&lt;/h2&gt;
-
-&lt;p&gt;-&lt;a href=&quot;https://imageoptim.com/mac&quot;&gt;ImageOptim Mac app&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;-&lt;a href=&quot;http://learn.shayhowe.com/advanced-html-css/performance-organization/&quot;&gt;Shay Howe’s Advanced CSS: Performance Organization&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;-&lt;a href=&quot;https://unsplash.com/&quot;&gt;Free High Quality Images For Your Application&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;-&lt;a href=&quot;http://www.creativebloq.com/graphic-design/what-is-dpi-image-resolution-71515673&quot;&gt;A Guide to Pixels, Resolutions, and DPI&lt;/a&gt;&lt;/p&gt;
-
-</description>
-        <pubDate>Tue, 04 Oct 2016 00:00:00 -0400</pubDate>
-        <link>http://127.0.0.1:4000//posts/optimizing-images/</link>
-        <guid isPermaLink="true">http://127.0.0.1:4000//posts/optimizing-images/</guid>
-        
-        <category>Rendering Images Faster</category>
         
         
         <category>posts</category>
