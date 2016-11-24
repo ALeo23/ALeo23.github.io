@@ -6,9 +6,111 @@
 </description>
     <link>http://127.0.0.1:4000//</link>
     <atom:link href="http://127.0.0.1:4000//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 11 Nov 2016 21:16:23 -0500</pubDate>
-    <lastBuildDate>Fri, 11 Nov 2016 21:16:23 -0500</lastBuildDate>
+    <pubDate>Wed, 23 Nov 2016 19:16:26 -0500</pubDate>
+    <lastBuildDate>Wed, 23 Nov 2016 19:16:26 -0500</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
+    
+      <item>
+        <title>Algorithmic Time Complexities</title>
+        <description>&lt;h2 id=&quot;time-complexity&quot;&gt;Time Complexity&lt;/h2&gt;
+
+&lt;p&gt;Algorithmic time complexity is used to describe the efficiency of a given function in terms of the time the function takes to complete. A standard for describing time complexity exists in the form of &lt;em&gt;Big O&lt;/em&gt; notation, as indicated below the title for each corresponding section that follows. Big O looks like this: O(time), where time is the operations the function takes to complete calculating based on the input. Big O measures the upper bounds of efficiency, meaning that we are focusing on the worst-case scenario when calculating the efficiency. When calculating complexity, it helps to imagine how many times the entire input will need to be iterated over. Many variables exist as to how long a function will actually take to run, such as computer performance, so simply measuring runtime is not enough. This is akin to saying that two people may take different amounts of time to solve a problem, even if they are using the same algorithm.&lt;/p&gt;
+
+&lt;h2 id=&quot;constant&quot;&gt;Constant&lt;/h2&gt;
+
+&lt;h4 id=&quot;o1&quot;&gt;O(1)&lt;/h4&gt;
+
+&lt;p&gt;Operations with a constant complexity always perform at a constant rate, regardless of their input size. This does not mean that they return instantly, though they generally return very quickly. Constant time operations are generally the most desirable and represent some of the fastest operations in Javascript. Retrieving a value from an array or object is considered a constant time operation. For example, if a function has a constant time complexity and takes about 100ms to run with an input of size 10, it will also take about 100ms to run if the input size is 1,000.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;constantRetrieve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;em&gt;This function runs in constant time; regardless of input size, the function will always take about the same amount of time to look up a value in the array.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;amortized-constant&quot;&gt;Amortized Constant&lt;/h2&gt;
+
+&lt;h4 id=&quot;o1-1&quot;&gt;O(1)&lt;/h4&gt;
+
+&lt;p&gt;An amortized constant time complexity is similar in operating time to a constant time complexity, however it has a seldom but reocurring step than takes far longer than all other constant iterations. Amortized constant is a representation of how long the average iteration will take, making note that one iteration may, in the worst case, take much longer, but only once within a large number of iterations. For example, we’ll say brewing tea every day always takes me 2 minutes, but once a year (I buy a lot of tea) I have to go to the store and buy more tea before I can brew more, which would increase the brew time, on that day only, to 1 hour. It’s safe to say brewing tea takes me 2 minutes, even though once a year it does take me an hour.&lt;/p&gt;
+
+&lt;h2 id=&quot;logarithmic&quot;&gt;Logarithmic&lt;/h2&gt;
+
+&lt;h4 id=&quot;olog-n&quot;&gt;O(log n)&lt;/h4&gt;
+
+&lt;p&gt;A function with a logarithmic time complexity will become more efficient on each iteration. Each iteration will take less time than the iteration before it. This usually means that the size of the input gets smaller on each iteration. For example, a binary search tree runs on a logarithmic time complexity when finding values, because it is halved in size on each iteration, until reaching its target value or the end of the tree. If input size is 24 on first iteration, it will be 12 on the next, then 6 and continuing to get smaller and faster until the function returns.&lt;/p&gt;
+
+&lt;h2 id=&quot;linear&quot;&gt;Linear&lt;/h2&gt;
+
+&lt;h4 id=&quot;on&quot;&gt;O(n)&lt;/h4&gt;
+
+&lt;p&gt;Linear time complexity operations grow at a constant rate directly with the size of the input. The bigger the input size, the longer the function will take. A simple for loop that must iterate over each value in an array once would be a linear operation. In the worst case for a linear time complexity function, each value in the input must be iterated over at most one time. Linear functions will grow at a constant rate, but do not operate in constant time.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;printArray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;em&gt;This function will always log every value inside of the provided array. In order to perform this task, the function must iterate over each item in the array once. The runtime of our function is directly related to the size of the input.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;quadratic&quot;&gt;Quadratic&lt;/h2&gt;
+
+&lt;h4 id=&quot;on2&quot;&gt;O(n^2)&lt;/h4&gt;
+
+&lt;p&gt;A quadratic time operation grows with input size to the power of 2. This is usually because the input will have to be iterated over twice for each iteration. For example, if a function takes an input and iterates over each value in that input, and for each value in that input the function also must again iterate over each value on each iteration, it would have a quadratic complexity. Each value in the input must iterate over every other value in the input, in the worst cases.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;combine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[];&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;em&gt;This function is not entirely useful for much more than illustration purposes. The combine function will need to pass over every value in the array in the first for loop. Inside of each iteration on the outer for loop, an inner for loop will need to iterate over each item in the array. For every value in the first loop, we will iterate over every value in the collection.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;exponential&quot;&gt;Exponential&lt;/h2&gt;
+
+&lt;h4 id=&quot;ocn&quot;&gt;O(c^n)&lt;/h4&gt;
+
+&lt;p&gt;Exponential are some of the most inefficient of time complexities. An exponential function’s time complexity will grow rapidly (exponentially) with input size. Any relatively large input will generally make one of these functions time out or take an exceptionally long time to complete. A function might have an exponential time complexity if it has to iterate over every input value using a large amount of nested for loops, which also in turn iterate over every input value, again and again and again. Exponential time complexity is rare and generally best avoided.&lt;/p&gt;
+
+&lt;h2 id=&quot;trimming-calculations&quot;&gt;Trimming Calculations&lt;/h2&gt;
+
+&lt;p&gt;Big O is used to describe the runtime in relation to the input agnostic of these smaller details and variables. Think of O as a filter that leaves behind only the most significant portion of the complexity. Big O notation is always described in terms of an end result, as depicted above in examples. Computers perform caluclations at very high speeds and the extra data that will be dropped is decreasignly signifcant as the input grows in size. Provided a complexity of: &lt;code class=&quot;highlighter-rouge&quot;&gt;O(3n + 100)&lt;/code&gt;, this can be simplified to O(n) because constant values increase n at a predictable, steady, constant rate. Constant rates will have a diminishing effect as the size of n increases. Even a time complexity of &lt;code class=&quot;highlighter-rouge&quot;&gt;O(1000n^2 + 5000)&lt;/code&gt; would reduce to simply O(n^2).&lt;/p&gt;
+
+&lt;h2 id=&quot;other-time-complexities&quot;&gt;Other Time Complexities&lt;/h2&gt;
+
+&lt;p&gt;More time complexities exist beyond the ones covered in this post. These complexities will describe the majority of functions that programmers write, especially in Javascript. Be wary of simply counting &lt;code class=&quot;highlighter-rouge&quot;&gt;for&lt;/code&gt; loops in code to determine the time complexity of a function. Not all &lt;code class=&quot;highlighter-rouge&quot;&gt;for&lt;/code&gt; loops will iterate over an array of varying size. Be sure to check which collection a given &lt;code class=&quot;highlighter-rouge&quot;&gt;for&lt;/code&gt; loop, or equivalent iterating function, is iterating over when calculating complexity.&lt;/p&gt;
+
+&lt;h2 id=&quot;see-also&quot;&gt;See Also&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://btholt.github.io/four-semesters-of-cs/&quot;&gt;Four Semesters of CS&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://bigocheatsheet.com/&quot;&gt;Big O Cheat Sheet&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://mohalgorithmsorbit.blogspot.com/&quot;&gt;Algorithm’s Orbit&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Tue, 22 Nov 2016 00:00:00 -0500</pubDate>
+        <link>http://127.0.0.1:4000//posts/time-complexity/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000//posts/time-complexity/</guid>
+        
+        <category>Measuring efficiency</category>
+        
+        
+        <category>posts</category>
+        
+      </item>
     
       <item>
         <title>What is TypeScript?</title>
@@ -93,7 +195,7 @@
 
 &lt;p&gt;&lt;em&gt;This code is an excerpt from the Angular Tour of Heroes tutorial, available &lt;a href=&quot;https://angular.io/docs/ts/latest/tutorial/&quot;&gt;here&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;The code above uses an import statement to import a core module from Angular 2. This post is about TypeScript, and I will not go further into the details of Angular 2. This import illustrates how a module can be imported into a file using ES6 Modules. &lt;code class=&quot;highlighter-rouge&quot;&gt;HeroComponent&lt;/code&gt; is defined with ‘implements &lt;code class=&quot;highlighter-rouge&quot;&gt;OnInit&lt;/code&gt;’ which makes the &lt;code class=&quot;highlighter-rouge&quot;&gt;OnInit&lt;/code&gt; module available to &lt;code class=&quot;highlighter-rouge&quot;&gt;HeroComponent&lt;/code&gt;. Functions can expect a return value of &lt;code class=&quot;highlighter-rouge&quot;&gt;Promise&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;Observable&lt;/code&gt; attached to a data type, throwing an error if an object is not being wrapped correctly. TypeScript will check a function’s output to make sure a Promise is being returned, if assigned, like below.&lt;/p&gt;
+&lt;p&gt;The code above uses an import statement to import a core module from Angular 2. This post is about TypeScript, and I will not go further into the details of Angular 2. This import illustrates how a module can be imported into a file using ES6 Modules. &lt;code class=&quot;highlighter-rouge&quot;&gt;HeroComponent&lt;/code&gt; is defined with ‘implements &lt;code class=&quot;highlighter-rouge&quot;&gt;OnInit&lt;/code&gt;’ which makes the &lt;code class=&quot;highlighter-rouge&quot;&gt;OnInit&lt;/code&gt; module available to &lt;code class=&quot;highlighter-rouge&quot;&gt;HeroComponent&lt;/code&gt;. Functions can expect a return value of &lt;code class=&quot;highlighter-rouge&quot;&gt;Promise&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;Observable&lt;/code&gt; attached to a data type, throwing an error if an object is not being wrapped correctly. TypeScript will check a function’s output to make sure a Promise is being returned, if assigned, like below. &lt;code class=&quot;highlighter-rouge&quot;&gt;: Promise&amp;lt;Hero[]&amp;gt;&lt;/code&gt; below is telling our function that it should expect a Promise object that contains the array of Heroes. The function is turning the response from the GET request into a Promise object, to keep asynchronous functionality. The function will need to be updated accordingly from expecting just &lt;code class=&quot;highlighter-rouge&quot;&gt;Hero[]&lt;/code&gt;, an array of Heroes, to &lt;code class=&quot;highlighter-rouge&quot;&gt;Promise&amp;lt;Hero[]&amp;gt;&lt;/code&gt; to indicate that the desired result will be wrapped in a Promise.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;nx&quot;&gt;getHeroes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Hero&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;heroesUrl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -475,54 +577,6 @@
         <guid isPermaLink="true">http://127.0.0.1:4000//posts/angular-and-apis/</guid>
         
         <category>Integrating APIs into your Angular Views</category>
-        
-        
-        <category>posts</category>
-        
-      </item>
-    
-      <item>
-        <title>Express Development</title>
-        <description>&lt;h2 id=&quot;getting-started-with-express&quot;&gt;Getting Started With Express&lt;/h2&gt;
-
-&lt;p&gt;Express is a web framework designed to abstract away a lot of the repeated code inside of node.js applications. You can find their documentation &lt;a href=&quot;https://expressjs.com/en/4x/api.html&quot;&gt;here&lt;/a&gt; and I highly recommend referencing it often while learning to use Express. Express has many built in functions for handling requests and serving responses. Express cleaned up their framework in the 4.x API and did a massive overhaul on the system. Express is now extremely modular and only comes with what a user will need to handle requests as mentioned above. Express comes pretty bare; &lt;code class=&quot;highlighter-rouge&quot;&gt;express.static&lt;/code&gt; is the only middleware that comes baked in with Express since the 4.x update, so be aware as you read examples online. Any examples referencing 3.x or earlier may contain outdated information.&lt;/p&gt;
-
-&lt;h6 id=&quot;a-note-about-middleware&quot;&gt;A Note About Middleware&lt;/h6&gt;
-
-&lt;p&gt;Middleware functions, in the world of Express, are simply plugins that extend Express’s functionality. A middleware function has a particular set of parameters it must take to work correctly; req, res, and next are required in middleware functions. Req is the request, res is the response, and next is a callback. The next function will signify the end of the function and allow the next functions to run. A function must either call &lt;code class=&quot;highlighter-rouge&quot;&gt;next()&lt;/code&gt; or end the request response cycle, or the server will hang. Middleware is loaded using &lt;code class=&quot;highlighter-rouge&quot;&gt;app.use()&lt;/code&gt;. Express also provides a great guide for writing your own middleware, &lt;a href=&quot;https://expressjs.com/en/guide/writing-middleware.html&quot;&gt;it’s not as hard as it sounds.&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;using-express&quot;&gt;Using Express&lt;/h2&gt;
-
-&lt;p&gt;Using Express is both intuitive and rewarding. I’ve typed up a quick example of a server with some key parts needed to get started handling some GET and POST requests.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;/assets/images/express1.png&quot;&gt;&lt;img src=&quot;/assets/images/express1.png&quot; alt=&quot;express1&quot; /&gt;&lt;/a&gt;
-&lt;em&gt;On the “Code Less Express!”&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Looking above, we can see that a lot of the request handling is being abstracted away for us. The only external functions that are not listed are the express module itself. Express can chain middleware functions using next to move along until an end or return is reached.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;/assets/images/express2.png&quot;&gt;&lt;img src=&quot;/assets/images/express2.png&quot; alt=&quot;express1&quot; /&gt;&lt;/a&gt;
-&lt;em&gt;Postman allows you to debug POST requests without having to create forms and event handlers. (See below)&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Generally, you’ll want your POST requests to have some sort of inner function that stores data somewhere in the storage method of your choice. These handlers can also take multiple callbacks and chain them together for more complex operations. The additional callbacks passed in will all call &lt;code class=&quot;highlighter-rouge&quot;&gt;next()&lt;/code&gt; when done running, and the final callback, not usually a named function, in the chain will end the response.&lt;/p&gt;
-
-&lt;h2 id=&quot;going-further&quot;&gt;Going Further&lt;/h2&gt;
-
-&lt;p&gt;Express is a web framework built on top of node. Like many modules that exist for node, Express extends node’s functionality to make working with node less exhausting. Express now comes pretty bare, and only has what you need it to, after you import other middlewares and create your own. Postman is a great app designed to streamline API development and is very quick to pick up and use. Note that when using Express, we don’t need to require or use the ‘http’ module because Express is taking care of the heavy lifting.&lt;/p&gt;
-
-&lt;h2 id=&quot;see-also&quot;&gt;See Also&lt;/h2&gt;
-
-&lt;p&gt;-&lt;a href=&quot;https://expressjs.com/&quot;&gt;Express&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;-&lt;a href=&quot;http://www.9bitstudios.com/2013/09/express-js-authentication/&quot;&gt;Authentication with Express&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;-&lt;a href=&quot;https://www.getpostman.com/&quot;&gt;Postman&lt;/a&gt;&lt;/p&gt;
-
-</description>
-        <pubDate>Tue, 11 Oct 2016 00:00:00 -0400</pubDate>
-        <link>http://127.0.0.1:4000//posts/express-node-server/</link>
-        <guid isPermaLink="true">http://127.0.0.1:4000//posts/express-node-server/</guid>
-        
-        <category>Using node.js</category>
         
         
         <category>posts</category>
